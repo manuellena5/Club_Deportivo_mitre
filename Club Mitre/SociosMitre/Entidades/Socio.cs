@@ -19,8 +19,10 @@ namespace Entidades
         private DateTime _FechaNac;
         private string _Tipo;
         private string _Categoria;
+        private string _UltMes;
+        private int _UltAnio;
 
-       
+  
         #endregion
 
 
@@ -84,6 +86,20 @@ namespace Entidades
         }
 
 
+        public string UltMes
+        {
+            get { return _UltMes; }
+            set { _UltMes = value; }
+        }
+
+
+        public int UltAnio
+        {
+            get { return _UltAnio; }
+            set { _UltAnio = value; }
+        }
+
+
         #endregion
 
 
@@ -91,8 +107,8 @@ namespace Entidades
         public Socio()
        { 
        }
-      
-       public Socio(int nroSoc,int anio_cuota,string mes_cuota, string nombre, string apellido,int doc,DateTime fechanac,string tipo,string categoria)
+
+        public Socio(int nroSoc, int anio_cuota, string mes_cuota, string nombre, string apellido, int doc, DateTime fechanac, string tipo, string categoria, string ultmes, int ultanio)
        {
            this.NroSocio = nroSoc;
            this.AnioCuota = anio_cuota;
@@ -103,6 +119,8 @@ namespace Entidades
            this.FechaNac = fechanac;
            this.Tipo = tipo;
            this.Categoria = categoria;
+           this.UltMes = ultmes;
+           this.UltAnio = ultanio;
 
        }
 

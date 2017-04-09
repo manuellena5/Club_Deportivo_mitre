@@ -13,6 +13,13 @@ namespace Datos
 {
     public class SociosData : Adapter
     {
+
+        enum meses
+        {
+            Enero = 1, Febrero, Marzo, Abril, Mayo, Junio, Julio, Agosto, Septiembre, Octubre, Noviembre, Diciembre,No_ha_abonado
+        }
+
+
         public List<Socio> GetAll()
         {
             List<Socio> socios = new List<Socio>();
@@ -31,6 +38,60 @@ namespace Datos
                     soc.FechaNac = (DateTime)drSocios["fecha_nac"];
                     soc.Tipo = (string)drSocios["tipo"];
                     soc.Categoria = (string)drSocios["categoria"];
+                    socios.Add(soc);
+
+                }
+                drSocios.Close();
+            }
+            catch (Exception ex)
+            {
+                Exception ExcepcionManejada = new Exception("No se hallaron resultados", ex);
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return socios;
+
+        }
+
+
+        public List<Socio> TraerTodosEstadoActual()
+        {
+            
+            List<Socio> socios = new List<Socio>();
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdSocios = new SqlCommand("select * from [dbo].[vwCuotasMaxPorCliente]", SqlConn);
+                SqlDataReader drSocios = cmdSocios.ExecuteReader();
+                while (drSocios.Read())
+                {
+                    int bandera = 0;
+                    Socio soc = new Socio();
+                    soc.NroSocio = (int)drSocios["nro_socio"];
+                    soc.Nombre = (string)drSocios["nombre"];
+                    soc.Apellido = (string)drSocios["apellidos"];
+                    soc.Dni = (int)drSocios["dni"];
+                    soc.FechaNac = (DateTime)drSocios["fecha_nac"];
+                    soc.Tipo = (string)drSocios["tipo"];
+                    soc.Categoria = (string)drSocios["categoria"];
+                    soc.UltAnio = (int)drSocios["anio_cuota"];
+
+                    foreach (int mes in Enum.GetValues(typeof(meses)))
+                    {
+                        if (mes == (int)drSocios["mes_cuota"])
+                        {
+                            soc.UltMes = Enum.GetName(typeof(meses),mes);
+                            bandera = 1;
+                            break;
+                        }
+                       
+                    }
+                    if (bandera == 0)
+                    {
+                        soc.UltMes = meses.No_ha_abonado.ToString();
+                    }
                     socios.Add(soc);
 
                 }

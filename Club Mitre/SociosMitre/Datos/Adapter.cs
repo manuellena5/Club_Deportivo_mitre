@@ -43,5 +43,7 @@ namespace Datos
         {
             throw new Exception("Metodo no implementado");
         }
+
+        
     }
 }

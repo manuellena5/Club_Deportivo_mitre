@@ -14,15 +14,28 @@ namespace UI.Escritorio
 {
     public partial class frmListaSocios : Form
     {
+        #region VARIABLES
+
+        public string par2, par3, par4, par5, par6, par7;
+        public int par1;
+
+
+        #endregion
+
+
+        #region CONSTRUCTOR
+
         public frmListaSocios()
         {
             InitializeComponent();
             this.dataListado.AutoGenerateColumns = false;
-            
+
         }
 
-        public string par2, par3, par4, par5,par6,par7;
-        public int par1;
+        #endregion
+
+
+        #region METODOS
 
         public void Listar()
         {
@@ -31,7 +44,7 @@ namespace UI.Escritorio
 
         }
 
-       
+
 
         public void Buscar()
         {
@@ -49,6 +62,12 @@ namespace UI.Escritorio
             }
         }
 
+        #endregion
+
+
+        #region EVENTOS
+
+
         private void dgvListaSocios_DoubleClick(object sender, EventArgs e)
         {
             par1 = Convert.ToInt32(this.dataListado.CurrentRow.Cells["NroSocio"].Value);
@@ -61,9 +80,10 @@ namespace UI.Escritorio
             this.Hide();
         }
 
+
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            
+
             if (this.btnBuscar.Text == "Listar")
             {
                 this.Listar();
@@ -84,6 +104,11 @@ namespace UI.Escritorio
         {
             this.Close();
         }
+
+
+
+        #endregion
+       
 
 
     }

@@ -192,6 +192,19 @@ namespace UI.Escritorio
             this.cbTipo.Text = string.Empty;
         }
 
+
+        public void BloquearControles(bool valor)
+        {
+            this.txtApellido.Enabled = !valor;
+            this.txtDni.Enabled = !valor;
+            this.txtNombre.Enabled = !valor;
+            this.dtFecha.Enabled = !valor;
+            this.cbCategoria.Enabled = !valor;
+            this.cbTipo.Enabled = !valor;
+
+
+        }
+
         #endregion
 
 

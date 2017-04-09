@@ -57,6 +57,12 @@
     <Compile Include="ApplicationForm.Designer.cs">
       <DependentUpon>ApplicationForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmHistorialPagosXSocio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHistorialPagosXSocio.Designer.cs">
+      <DependentUpon>frmHistorialPagosXSocio.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPagoCuotas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +92,9 @@
     <EmbeddedResource Include="ABMSocios.resx">
       <DependentUpon>ABMSocios.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmHistorialPagosXSocio.resx">
+      <DependentUpon>frmHistorialPagosXSocio.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmPagoCuotas.resx">
       <DependentUpon>frmPagoCuotas.cs</DependentUpon>
     </EmbeddedResource>
@@ -106,6 +115,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -129,6 +139,15 @@
       <Project>{e1352f0b-7db2-4d0e-8ca9-4eb124149051}</Project>
       <Name>Negocio</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lupa.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\boton-editar-perfil-de-usuario_318-32453.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icono-Eliminar.jpeg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -40,7 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessLogic.cs" />
-    <Compile Include="PagoCuotasLogic.cs" />
+    <Compile Include="CuotasLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SociosLogic.cs" />
     <Compile Include="UsuarioLogic.cs" />

@@ -34,19 +34,19 @@
             this.sociosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aBMSociosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.controlDeSociosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.historialPagosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pagosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ingresarPagoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.historialDePagosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ticketsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.impresionDeTicketsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.resumenDePagosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.contenidoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.índiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buscarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.acercadeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.historialPagosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.resumenDePagosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -101,6 +101,13 @@
             this.controlDeSociosToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.controlDeSociosToolStripMenuItem.Text = "Ver estado actual";
             // 
+            // historialPagosToolStripMenuItem
+            // 
+            this.historialPagosToolStripMenuItem.Name = "historialPagosToolStripMenuItem";
+            this.historialPagosToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.historialPagosToolStripMenuItem.Text = "Historial pagos";
+            this.historialPagosToolStripMenuItem.Click += new System.EventHandler(this.historialPagosToolStripMenuItem_Click);
+            // 
             // pagosToolStripMenuItem
             // 
             this.pagosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -137,6 +144,12 @@
             this.impresionDeTicketsToolStripMenuItem.Name = "impresionDeTicketsToolStripMenuItem";
             this.impresionDeTicketsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.impresionDeTicketsToolStripMenuItem.Text = "Impresion de tickets";
+            // 
+            // resumenDePagosToolStripMenuItem
+            // 
+            this.resumenDePagosToolStripMenuItem.Name = "resumenDePagosToolStripMenuItem";
+            this.resumenDePagosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.resumenDePagosToolStripMenuItem.Text = "Resumen de pagos";
             // 
             // ayudaToolStripMenuItem1
             // 
@@ -178,18 +191,6 @@
             this.acercadeToolStripMenuItem.Name = "acercadeToolStripMenuItem";
             this.acercadeToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.acercadeToolStripMenuItem.Text = "&Acerca de...";
-            // 
-            // historialPagosToolStripMenuItem
-            // 
-            this.historialPagosToolStripMenuItem.Name = "historialPagosToolStripMenuItem";
-            this.historialPagosToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
-            this.historialPagosToolStripMenuItem.Text = "Historial pagos";
-            // 
-            // resumenDePagosToolStripMenuItem
-            // 
-            this.resumenDePagosToolStripMenuItem.Name = "resumenDePagosToolStripMenuItem";
-            this.resumenDePagosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.resumenDePagosToolStripMenuItem.Text = "Resumen de pagos";
             // 
             // Principal
             // 

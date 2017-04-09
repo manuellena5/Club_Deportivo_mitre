@@ -29,6 +29,10 @@ namespace Negocio
             return SociosD.GetAll();
         }
 
+        public List<Socio> TraerTodosEstadoActual()
+        {
+            return SociosD.TraerTodosEstadoActual();
+        }
 
         public Socio GetOne(int id)
         {

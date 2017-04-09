@@ -30,5 +30,12 @@ namespace UI.Escritorio
             //frm.MdiParent = this;
             frm.ShowDialog();
         }
+
+        private void historialPagosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmHistorialPagosXSocio frm = new frmHistorialPagosXSocio();
+            frm.ShowDialog();
+
+        }
     }
 }
