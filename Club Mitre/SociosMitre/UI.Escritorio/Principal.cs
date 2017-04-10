@@ -37,5 +37,11 @@ namespace UI.Escritorio
             frm.ShowDialog();
 
         }
+
+        private void aBMCCategoriasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmActualizacionPrecios frm = new frmActualizacionPrecios();
+            frm.ShowDialog();
+        }
     }
 }

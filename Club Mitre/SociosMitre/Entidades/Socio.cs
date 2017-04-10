@@ -21,6 +21,15 @@ namespace Entidades
         private string _Categoria;
         private string _UltMes;
         private int _UltAnio;
+        private string _EstadoSocio;
+        private int _Habilitado;
+        private int _Id_categoria;
+
+       
+
+        
+
+       
 
   
         #endregion
@@ -99,7 +108,24 @@ namespace Entidades
             set { _UltAnio = value; }
         }
 
+        public string EstadoSocio
+        {
+            get { return _EstadoSocio; }
+            set { _EstadoSocio = value; }
+        }
 
+        public int Habilitado
+        {
+            get { return _Habilitado; }
+            set { _Habilitado = value; }
+        }
+
+
+        public int Id_categoria
+        {
+            get { return _Id_categoria; }
+            set { _Id_categoria = value; }
+        }
         #endregion
 
 
@@ -108,7 +134,7 @@ namespace Entidades
        { 
        }
 
-        public Socio(int nroSoc, int anio_cuota, string mes_cuota, string nombre, string apellido, int doc, DateTime fechanac, string tipo, string categoria, string ultmes, int ultanio)
+        public Socio(int nroSoc, int anio_cuota, string mes_cuota, string nombre, string apellido, int doc, DateTime fechanac, string tipo, string categoria, string ultmes, int ultanio, string estado,int habilitado,int id_categoria)
        {
            this.NroSocio = nroSoc;
            this.AnioCuota = anio_cuota;
@@ -121,6 +147,9 @@ namespace Entidades
            this.Categoria = categoria;
            this.UltMes = ultmes;
            this.UltAnio = ultanio;
+           this.EstadoSocio = estado;
+           this.Habilitado = habilitado;
+           this.Id_categoria = id_categoria;
 
        }
 

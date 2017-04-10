@@ -47,6 +47,8 @@
             this.buscarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.acercadeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.categoriasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aBMCCategoriasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,7 +59,8 @@
             this.sociosToolStripMenuItem,
             this.pagosToolStripMenuItem,
             this.ticketsToolStripMenuItem,
-            this.ayudaToolStripMenuItem1});
+            this.ayudaToolStripMenuItem1,
+            this.categoriasToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(733, 24);
@@ -166,31 +169,46 @@
             // contenidoToolStripMenuItem
             // 
             this.contenidoToolStripMenuItem.Name = "contenidoToolStripMenuItem";
-            this.contenidoToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.contenidoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.contenidoToolStripMenuItem.Text = "&Contenido";
             // 
             // índiceToolStripMenuItem
             // 
             this.índiceToolStripMenuItem.Name = "índiceToolStripMenuItem";
-            this.índiceToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.índiceToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.índiceToolStripMenuItem.Text = "Índic&e";
             // 
             // buscarToolStripMenuItem
             // 
             this.buscarToolStripMenuItem.Name = "buscarToolStripMenuItem";
-            this.buscarToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.buscarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.buscarToolStripMenuItem.Text = "&Buscar";
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(132, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(149, 6);
             // 
             // acercadeToolStripMenuItem
             // 
             this.acercadeToolStripMenuItem.Name = "acercadeToolStripMenuItem";
-            this.acercadeToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.acercadeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.acercadeToolStripMenuItem.Text = "&Acerca de...";
+            // 
+            // categoriasToolStripMenuItem
+            // 
+            this.categoriasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aBMCCategoriasToolStripMenuItem});
+            this.categoriasToolStripMenuItem.Name = "categoriasToolStripMenuItem";
+            this.categoriasToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
+            this.categoriasToolStripMenuItem.Text = "Categorias";
+            // 
+            // aBMCCategoriasToolStripMenuItem
+            // 
+            this.aBMCCategoriasToolStripMenuItem.Name = "aBMCCategoriasToolStripMenuItem";
+            this.aBMCCategoriasToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.aBMCCategoriasToolStripMenuItem.Text = "ABMC categorias";
+            this.aBMCCategoriasToolStripMenuItem.Click += new System.EventHandler(this.aBMCCategoriasToolStripMenuItem_Click);
             // 
             // Principal
             // 
@@ -229,5 +247,7 @@
         private System.Windows.Forms.ToolStripMenuItem acercadeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem historialPagosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem resumenDePagosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem categoriasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aBMCCategoriasToolStripMenuItem;
     }
 }

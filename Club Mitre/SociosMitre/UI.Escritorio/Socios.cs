@@ -22,6 +22,8 @@ namespace UI.Escritorio
         #region PROPIEDADES
         #endregion
 
+
+
         #region CONSTRUCTOR
 
         public Socios()
@@ -40,6 +42,7 @@ namespace UI.Escritorio
             SociosLogic socl = new SociosLogic();
 
             this.dgvSocios.DataSource = socl.TraerTodosEstadoActual();
+           
 
         }
 
@@ -92,7 +95,7 @@ namespace UI.Escritorio
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             SociosLogic soc = new SociosLogic();
-            dgvSocios.DataSource = soc.TraerPorApellido(this.txtBuscar.Text);
+            dgvSocios.DataSource = soc.TraerPorApellidoEstadoActual(this.txtBuscar.Text);
         }
 
         #endregion

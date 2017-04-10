@@ -51,6 +51,7 @@
             this.FechaNac = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UltMes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UltAnio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tscSocios.ContentPanel.SuspendLayout();
             this.tscSocios.TopToolStripPanel.SuspendLayout();
             this.tscSocios.SuspendLayout();
@@ -109,7 +110,8 @@
             this.Dni,
             this.FechaNac,
             this.UltMes,
-            this.UltAnio});
+            this.UltAnio,
+            this.Estado});
             this.tlpSocios.SetColumnSpan(this.dgvSocios, 2);
             this.dgvSocios.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvSocios.Location = new System.Drawing.Point(3, 3);
@@ -289,6 +291,14 @@
             this.UltAnio.Name = "UltAnio";
             this.UltAnio.ReadOnly = true;
             // 
+            // Estado
+            // 
+            this.Estado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Estado.DataPropertyName = "EstadoSocio";
+            this.Estado.HeaderText = "Estado";
+            this.Estado.Name = "Estado";
+            this.Estado.ReadOnly = true;
+            // 
             // Socios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -335,6 +345,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaNac;
         private System.Windows.Forms.DataGridViewTextBoxColumn UltMes;
         private System.Windows.Forms.DataGridViewTextBoxColumn UltAnio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
     }
 }
 

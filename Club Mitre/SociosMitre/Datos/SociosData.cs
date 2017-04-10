@@ -26,7 +26,7 @@ namespace Datos
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdSocios = new SqlCommand("select * from Socios", SqlConn);
+                SqlCommand cmdSocios = new SqlCommand("select soc.nro_socio,soc.nombre,soc.apellidos,soc.dni,soc.fecha_nac,soc.tipo,c.descripcion,soc.estado from Socios soc inner join categoria c on c.id_categoria = soc.id_categoria", SqlConn);
                 SqlDataReader drSocios = cmdSocios.ExecuteReader();
                 while (drSocios.Read())
                 {
@@ -37,7 +37,18 @@ namespace Datos
                     soc.Dni = (int)drSocios["dni"];
                     soc.FechaNac = (DateTime)drSocios["fecha_nac"];
                     soc.Tipo = (string)drSocios["tipo"];
-                    soc.Categoria = (string)drSocios["categoria"];
+                    soc.Categoria = (string)drSocios["descipcion"];
+
+                    soc.Habilitado = Convert.ToInt32(drSocios["estado"]);
+
+                    if ((Convert.ToInt32(drSocios["estado"])) == 0)
+                    {
+                        soc.EstadoSocio = "Inactivo";
+                    }
+                    else
+                    {
+                        soc.EstadoSocio = "Activo";
+                    }
                     socios.Add(soc);
 
                 }
@@ -75,7 +86,7 @@ namespace Datos
                     soc.Dni = (int)drSocios["dni"];
                     soc.FechaNac = (DateTime)drSocios["fecha_nac"];
                     soc.Tipo = (string)drSocios["tipo"];
-                    soc.Categoria = (string)drSocios["categoria"];
+                    soc.Categoria = (string)drSocios["descripcion"];
                     soc.UltAnio = (int)drSocios["anio_cuota"];
 
                     foreach (int mes in Enum.GetValues(typeof(meses)))
@@ -90,7 +101,20 @@ namespace Datos
                     }
                     if (bandera == 0)
                     {
-                        soc.UltMes = meses.No_ha_abonado.ToString();
+                        soc.UltMes = "No ha abonado";
+                        soc.UltAnio = DateTime.Now.Year;
+                        
+                    }
+
+                    soc.Habilitado = Convert.ToInt32(drSocios["estado"]);
+
+                    if ((Convert.ToInt32(drSocios["estado"])) == 0)
+                    {
+                        soc.EstadoSocio = "Inactivo";
+                    }
+                    else
+                    {
+                        soc.EstadoSocio = "Activo";
                     }
                     socios.Add(soc);
 
@@ -112,16 +136,18 @@ namespace Datos
 
         public List<Socio> TraerPorApellido(string Txtbuscado) 
         {
+
             List<Socio> Lista = new List<Socio>();
            try
            {
                this.OpenConnection();
-               SqlCommand cmdsocios = new SqlCommand("select soc.nro_socio,soc.nombre,soc.apellidos,soc.dni,soc.fecha_nac,soc.tipo,soc.categoria from Socios soc where soc.apellidos like @textobuscar + '%'", SqlConn);
+               SqlCommand cmdsocios = new SqlCommand("select soc.nro_socio,soc.nombre,soc.apellidos,soc.dni,soc.fecha_nac,soc.tipo,cat.descripcion,soc.estado from Socios soc inner join categoria cat on cat.id_categoria = soc.id_categoria where soc.apellidos like @textobuscar + '%'", SqlConn);
                cmdsocios.Parameters.Add("@textobuscar", SqlDbType.VarChar, 50).Value = Txtbuscado;
 
                SqlDataReader drSocios = cmdsocios.ExecuteReader();
                while (drSocios.Read())
                {
+
                    Socio soc = new Socio();
 
                    soc.NroSocio = drSocios.IsDBNull(0) ? Convert.ToInt32(string.Empty) : (Convert.ToInt32(drSocios["nro_socio"]));
@@ -130,8 +156,18 @@ namespace Datos
                    soc.Dni = drSocios.IsDBNull(3) ? Convert.ToInt32(string.Empty) : (Convert.ToInt32(drSocios["dni"]));
                    soc.FechaNac = drSocios.IsDBNull(4) ? Convert.ToDateTime(string.Empty) : Convert.ToDateTime(drSocios["fecha_nac"]);
                    soc.Tipo = drSocios.IsDBNull(5) ? string.Empty : drSocios["tipo"].ToString();
-                   soc.Categoria = drSocios.IsDBNull(6) ? string.Empty : drSocios["categoria"].ToString();
+                   soc.Categoria = drSocios.IsDBNull(6) ? string.Empty : drSocios["descripcion"].ToString();
 
+                   soc.Habilitado = Convert.ToInt32(drSocios["estado"]);
+
+                   if ((Convert.ToInt32(drSocios["estado"])) == 0)
+                   {
+                       soc.EstadoSocio = "Inactivo";
+                   }
+                   else
+                   {
+                       soc.EstadoSocio = "Activo";
+                   }
 
 
                    Lista.Add(soc);
@@ -149,6 +185,74 @@ namespace Datos
             }
 
 
+        public List<Socio> TraerPorApellidoEstadoActual(string Txtbuscado)
+        {
+            List<Socio> Lista = new List<Socio>();
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdsocios = new SqlCommand("select * from [dbo].[vwCuotasMaxPorCliente] where apellidos like @textobuscar + '%'", SqlConn);
+                cmdsocios.Parameters.Add("@textobuscar", SqlDbType.VarChar, 50).Value = Txtbuscado;
+
+                SqlDataReader drSocios = cmdsocios.ExecuteReader();
+                while (drSocios.Read())
+                {
+                    Socio soc = new Socio();
+
+                    int bandera = 0;
+                    
+                    soc.NroSocio = (int)drSocios["nro_socio"];
+                    soc.Nombre = (string)drSocios["nombre"];
+                    soc.Apellido = (string)drSocios["apellidos"];
+                    soc.Dni = (int)drSocios["dni"];
+                    soc.FechaNac = (DateTime)drSocios["fecha_nac"];
+                    soc.Tipo = (string)drSocios["tipo"];
+                    soc.Categoria = (string)drSocios["categoria"];
+                    soc.UltAnio = (int)drSocios["anio_cuota"];
+
+                    foreach (int mes in Enum.GetValues(typeof(meses)))
+                    {
+                        if (mes == (int)drSocios["mes_cuota"])
+                        {
+                            soc.UltMes = Enum.GetName(typeof(meses), mes);
+                            bandera = 1;
+                            break;
+                        }
+
+                    }
+                    if (bandera == 0)
+                    {
+                        soc.UltMes = "No ha abonado";
+                        soc.UltAnio = DateTime.Now.Year;
+                    }
+
+                    soc.Habilitado = Convert.ToInt32(drSocios["estado"]);
+
+                    if ((Convert.ToInt32(drSocios["estado"])) == 0)
+                    {
+                        soc.EstadoSocio = "Inactivo";
+                    }
+                    else
+                    {
+                        soc.EstadoSocio = "Activo";
+                    }
+
+
+                    Lista.Add(soc);
+                }
+            }
+            catch (Exception ex)
+            {
+                Exception ExcepcionManejada = new Exception("No se hallaron resultados", ex);
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return Lista;
+        }
+
+
 
         public Socio GetOne(int ID)
         {
@@ -158,7 +262,7 @@ namespace Datos
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdSocios = new SqlCommand("select soc.nro_socio,soc.nombre,soc.apellidos,soc.dni,soc.fecha_nac,soc.tipo,soc.categoria from Socios soc where soc.nro_socio =@ID", SqlConn);
+                SqlCommand cmdSocios = new SqlCommand("select soc.nro_socio,soc.nombre,soc.apellidos,soc.dni,soc.fecha_nac,soc.tipo,soc.categoria,cat.descripcion,soc.estado from Socios soc inner join categoria cat on cat.id_categoria = soc.id_categoria where soc.nro_socio =@ID", SqlConn);
                 cmdSocios.Parameters.Add("@ID", SqlDbType.Int).Value = ID;
                 SqlDataReader drSocios = cmdSocios.ExecuteReader();
                 if (drSocios.Read())
@@ -169,7 +273,17 @@ namespace Datos
                     soc.Dni = (int)drSocios["dni"];
                     soc.FechaNac = (DateTime)drSocios["fecha_nac"];
                     soc.Tipo = (string)drSocios["tipo"];
-                    soc.Categoria = (string)drSocios["categoria"];
+                    soc.Categoria = (string)drSocios["descripcion"];
+                    soc.Habilitado = Convert.ToInt32(drSocios["estado"]);
+
+                    if ((Convert.ToInt32(drSocios["estado"])) == 0)
+                    {
+                        soc.EstadoSocio = "Inactivo";
+                    }
+                    else
+                    {
+                        soc.EstadoSocio = "Activo";
+                    }
 
                 }
                 drSocios.Close();
@@ -215,15 +329,16 @@ namespace Datos
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdSave = new SqlCommand("update socios set nombre=@nombre,apellidos=@apellido,dni=@dni,fecha_nac=@fecha_nac,tipo=@tipo,categoria=@categoria where nro_socio=@nro_socio", SqlConn);
+                SqlCommand cmdSave = new SqlCommand("update socios set nombre=@nombre,apellidos=@apellido,dni=@dni,fecha_nac=@fecha_nac,tipo=@tipo,estado=@estado,id_categoria=@id_categoria where nro_socio=@nro_socio", SqlConn);
 
                 cmdSave.Parameters.Add("@nro_socio", SqlDbType.Int).Value = socio.NroSocio;
                 cmdSave.Parameters.Add("@nombre", SqlDbType.VarChar, 50).Value = socio.Nombre;
                 cmdSave.Parameters.Add("@apellido", SqlDbType.VarChar, 50).Value = socio.Apellido;
                 cmdSave.Parameters.Add("@dni", SqlDbType.Int).Value = socio.Dni;
                 cmdSave.Parameters.Add("@fecha_nac", SqlDbType.Date).Value = socio.FechaNac;
-                cmdSave.Parameters.Add("@tipo", SqlDbType.VarChar, 50).Value = socio.Tipo;
-                cmdSave.Parameters.Add("@categoria", SqlDbType.VarChar, 50).Value = socio.Categoria;
+                cmdSave.Parameters.Add("@tipo", SqlDbType.VarChar, 50).Value = socio.Tipo;                
+                cmdSave.Parameters.Add("@estado", SqlDbType.Bit).Value = socio.Habilitado;
+                cmdSave.Parameters.Add("@id_categoria", SqlDbType.Int).Value = socio.Id_categoria;
 
 
                 Convert.ToInt32(cmdSave.ExecuteNonQuery());
@@ -245,15 +360,16 @@ namespace Datos
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdSave = new SqlCommand("insert into socios(nombre,apellidos,dni,fecha_nac,tipo,categoria)" + 
-                    "values(@nombre,@apellidos,@dni,@fecha_nac,@tipo,@categoria)", SqlConn);
+                SqlCommand cmdSave = new SqlCommand("insert into socios(nombre,apellidos,dni,fecha_nac,tipo,estado,id_categoria)" + 
+                    "values(@nombre,@apellidos,@dni,@fecha_nac,@tipo,@estado,@id_categoria)", SqlConn);
 
                 cmdSave.Parameters.Add("@nombre", SqlDbType.VarChar, 50).Value = socio.Nombre;
                 cmdSave.Parameters.Add("@apellidos", SqlDbType.VarChar, 50).Value = socio.Apellido;
                 cmdSave.Parameters.Add("@dni", SqlDbType.Int).Value = socio.Dni;
-                cmdSave.Parameters.Add("@fecha_nac", SqlDbType.DateTime).Value = socio.FechaNac;
-                cmdSave.Parameters.Add("@tipo", SqlDbType.VarChar, 50).Value = socio.Tipo;
-                cmdSave.Parameters.Add("@categoria", SqlDbType.VarChar, 50).Value = socio.Categoria;
+                cmdSave.Parameters.Add("@fecha_nac", SqlDbType.Date).Value = socio.FechaNac;
+                cmdSave.Parameters.Add("@tipo", SqlDbType.VarChar, 50).Value = socio.Tipo;               
+                cmdSave.Parameters.Add("@estado", SqlDbType.Bit).Value = socio.Habilitado;
+                cmdSave.Parameters.Add("@id_categoria", SqlDbType.Int).Value = socio.Id_categoria;
 
                 Convert.ToInt32(cmdSave.ExecuteNonQuery());
 

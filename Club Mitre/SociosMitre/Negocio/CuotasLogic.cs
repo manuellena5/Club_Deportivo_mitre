@@ -40,10 +40,7 @@ namespace Negocio
             return CuotasD.TraerPorSocio(id);
         }
 
-        public List<Cuotas> TraerControl()
-        {
-            return CuotasD.TraerControl();
-        }
+        
 
         public List<Cuotas> TraerPorMes(int Mes)
         {
@@ -72,9 +69,9 @@ namespace Negocio
         {
             CuotasD.Save(pago);
         }
-        public void Update(Cuotas pago)
+        public void Update(Cuotas pago,int anioOld,int mesOld)
         {
-            CuotasD.Save(pago);
+            CuotasD.Editar(pago,anioOld,mesOld);
         }
         public void Insertar(Cuotas pago)
         {

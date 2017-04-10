@@ -57,6 +57,18 @@
     <Compile Include="ApplicationForm.Designer.cs">
       <DependentUpon>ApplicationForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmActualizacionPrecios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmActualizacionPrecios.Designer.cs">
+      <DependentUpon>frmActualizacionPrecios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAMBcategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAMBcategoria.Designer.cs">
+      <DependentUpon>frmAMBcategoria.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmHistorialPagosXSocio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,6 +103,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="ABMSocios.resx">
       <DependentUpon>ABMSocios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmActualizacionPrecios.resx">
+      <DependentUpon>frmActualizacionPrecios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAMBcategoria.resx">
+      <DependentUpon>frmAMBcategoria.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmHistorialPagosXSocio.resx">
       <DependentUpon>frmHistorialPagosXSocio.cs</DependentUpon>

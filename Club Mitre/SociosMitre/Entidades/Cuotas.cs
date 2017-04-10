@@ -13,13 +13,16 @@ namespace Entidades
        #region VARIABLES
 
        private int _NroSocio;
-       private int _MesCuota;
+       private int _NroMesCuota;
         private string _Nombre;
         private string _Apellido;
         private string _Tipo;
         private string _Categoria;
         private int _AnioCuota;
         private int _Importe;
+        private string _Mes;
+
+        
 
        #endregion
 
@@ -32,10 +35,10 @@ namespace Entidades
         }
 
 
-        public int MesCuota
+        public int NroMesCuota
         {
-            get { return _MesCuota; }
-            set { _MesCuota = value; }
+            get { return _NroMesCuota; }
+            set { _NroMesCuota = value; }
         }
         
        public string Nombre
@@ -74,6 +77,14 @@ namespace Entidades
             get { return _Importe; }
             set { _Importe = value; }
         }
+
+        public string Mes
+        {
+            get { return _Mes; }
+            set { _Mes = value; }
+        }
+
+
         #endregion
 
 
@@ -82,14 +93,15 @@ namespace Entidades
         public Cuotas()
         { }
 
-        public Cuotas(int nrosocio, int mes, string nombre, string apellido, int anio, int importe)
+        public Cuotas(int nrosocio, int nromes, string nombre, string apellido, int anio, int importe,string mes)
        {
            this.NroSocio = nrosocio;
-           this.MesCuota = mes;
+           this.NroMesCuota = nromes;
            this.Nombre = nombre;
            this.Apellido = apellido;
            this.AnioCuota = anio;
            this.Importe = importe;
+           this.Mes = mes;
 
        }
 

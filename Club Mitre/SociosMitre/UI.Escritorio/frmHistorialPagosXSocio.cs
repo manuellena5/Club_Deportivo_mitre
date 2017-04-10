@@ -219,7 +219,7 @@ namespace UI.Escritorio
         {
 
             int nroSoc = ((Cuotas)this.dataListado.SelectedRows[0].DataBoundItem).NroSocio;
-            int mes = ((Cuotas)this.dataListado.SelectedRows[0].DataBoundItem).MesCuota;
+            int mes = ((Cuotas)this.dataListado.SelectedRows[0].DataBoundItem).NroMesCuota;
             int anio = ((Cuotas)this.dataListado.SelectedRows[0].DataBoundItem).AnioCuota;
             frmPagoCuotas frm = new frmPagoCuotas(nroSoc, mes, anio, ApplicationForm.ModoForm.Modificacion);
             
@@ -232,7 +232,7 @@ namespace UI.Escritorio
         private void tsbEliminar_Click(object sender, EventArgs e)
         {
             int nroSoc = ((Cuotas)this.dataListado.SelectedRows[0].DataBoundItem).NroSocio;
-            int mes = ((Cuotas)this.dataListado.SelectedRows[0].DataBoundItem).MesCuota;
+            int mes = ((Cuotas)this.dataListado.SelectedRows[0].DataBoundItem).NroMesCuota;
             int anio = ((Cuotas)this.dataListado.SelectedRows[0].DataBoundItem).AnioCuota;
             frmPagoCuotas frm = new frmPagoCuotas(nroSoc, mes, anio, ApplicationForm.ModoForm.Baja);
             frm.BloquearControles(true);

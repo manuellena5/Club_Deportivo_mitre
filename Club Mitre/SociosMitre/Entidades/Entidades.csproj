@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessEntities.cs" />
+    <Compile Include="Categoria.cs" />
     <Compile Include="Cuotas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Socio.cs" />

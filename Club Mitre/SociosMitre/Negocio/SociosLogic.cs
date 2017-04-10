@@ -44,6 +44,10 @@ namespace Negocio
             return SociosD.TraerPorApellido(apellido);
         }
 
+        public List<Socio> TraerPorApellidoEstadoActual(string Txtbuscado)
+        {
+            return SociosD.TraerPorApellidoEstadoActual(Txtbuscado);
+        }
 
 
         public void Delete(Socio soc)

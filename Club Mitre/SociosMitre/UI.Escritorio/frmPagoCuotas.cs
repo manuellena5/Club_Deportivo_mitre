@@ -36,6 +36,8 @@ namespace UI.Escritorio
         {
             CuotasLogic cuo = new CuotasLogic();
             Modo = modo;
+            mesOld = mes;
+            anioOld = anio;
             CuotaActual = cuo.GetOne(ID,mes,anio);
             MapearDeDatos();
         }
@@ -50,7 +52,7 @@ namespace UI.Escritorio
         Cuotas _cuo = new Cuotas();
 
 
-        public int nrosocio, bandera = 0;
+        public int nrosocio, bandera = 0, anioOld,mesOld;
         public string nom, ape,categoria,tipo,mensaje;
 
         enum Meses
@@ -128,7 +130,7 @@ namespace UI.Escritorio
 
         public override void MapearDeDatos()
         {
-            int ind = this.CuotaActual.MesCuota - 1;
+            int ind = this.CuotaActual.NroMesCuota - 1;
             this.txtNroSocio.Text = Convert.ToString(this.CuotaActual.NroSocio);
             this.txtNombre.Text = this.CuotaActual.Nombre;
             this.txtApellido.Text = this.CuotaActual.Apellido;
@@ -183,7 +185,7 @@ namespace UI.Escritorio
 
                                 int indice = Convert.ToInt32(lbMeses.SelectedIndex) + 1;
                                 CuotaActual.NroSocio = Convert.ToInt32(this.txtNroSocio.Text);
-                                CuotaActual.MesCuota = indice;
+                                CuotaActual.NroMesCuota = indice;
                                 CuotaActual.Nombre = this.txtNombre.Text;
                                 CuotaActual.Apellido = this.txtApellido.Text;
                                 CuotaActual.AnioCuota = Convert.ToInt32(this.cbAnio.SelectedItem);
@@ -207,7 +209,7 @@ namespace UI.Escritorio
                     CuotaActual.Tipo = this.txtTipo.Text;
                     CuotaActual.Categoria = this.txtCategoria.Text;
                     int indic = Convert.ToInt32(lbMeses.SelectedIndex) + 1;
-                    CuotaActual.MesCuota = indic;
+                    CuotaActual.NroMesCuota = indic;
                     CuotaActual.AnioCuota = Convert.ToInt32(this.cbAnio.SelectedItem);
                     CuotaActual.Importe = Convert.ToInt32(this.txtImporte.Text);
                     CuotaActual.Estado = BusinessEntities.Estados.Modificar;
@@ -257,7 +259,7 @@ namespace UI.Escritorio
                         //string mess;
                         //mess = lbMeses.Items[k].ToString();
                         pago2.NroSocio = Convert.ToInt32(this.txtNroSocio.Text);
-                        pago2.MesCuota = k;
+                        pago2.NroMesCuota = k;
                         pago2.AnioCuota = Convert.ToInt32(this.cbAnio.SelectedItem);
                         pago2.Importe = Convert.ToInt32(this.txtImporte.Text);
                         pago2.Estado = BusinessEntities.Estados.Nuevo;
@@ -281,7 +283,7 @@ namespace UI.Escritorio
                     string mesPago;
                     mesPago = lbMeses.Items[Convert.ToInt32(k)].ToString();
                     cuo.NroSocio = Convert.ToInt32(this.txtNroSocio.Text);
-                    cuo.MesCuota = indice;
+                    cuo.NroMesCuota = indice;
                     cuo.AnioCuota = Convert.ToInt32(this.cbAnio.SelectedItem);
                     cuo.Importe = Convert.ToInt32(this.txtImporte.Text);
                     cuo.Nombre = this.txtNombre.Text;
@@ -353,8 +355,8 @@ namespace UI.Escritorio
                                 break;
                             }
                             else
-                            {
-                                cuo.Save(CuotaActual);
+                            {   
+                                cuo.Update(CuotaActual,anioOld,mesOld);
                             }  
 
 
