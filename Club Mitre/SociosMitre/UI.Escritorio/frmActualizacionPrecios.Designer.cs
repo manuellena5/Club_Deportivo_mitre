@@ -40,6 +40,7 @@
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.Id_categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre_categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fecha_condicion = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,7 +54,7 @@
             this.tlpCategorias.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.65625F));
             this.tlpCategorias.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 52.34375F));
             this.tlpCategorias.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 154F));
-            this.tlpCategorias.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 142F));
+            this.tlpCategorias.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 143F));
             this.tlpCategorias.Controls.Add(this.label1, 0, 1);
             this.tlpCategorias.Controls.Add(this.dataListado, 1, 2);
             this.tlpCategorias.Controls.Add(this.btnNuevo, 0, 2);
@@ -100,6 +101,7 @@
             this.dataListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataListado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id_categoria,
+            this.Nombre_categoria,
             this.Descripcion,
             this.Valor,
             this.fecha_condicion});
@@ -154,7 +156,7 @@
             // 
             // btnActualizar
             // 
-            this.btnActualizar.Location = new System.Drawing.Point(272, 405);
+            this.btnActualizar.Location = new System.Drawing.Point(271, 405);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(75, 23);
             this.btnActualizar.TabIndex = 4;
@@ -164,7 +166,7 @@
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(426, 405);
+            this.btnSalir.Location = new System.Drawing.Point(425, 405);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 23);
             this.btnSalir.TabIndex = 5;
@@ -191,6 +193,14 @@
             this.Id_categoria.Name = "Id_categoria";
             this.Id_categoria.ReadOnly = true;
             this.Id_categoria.Visible = false;
+            // 
+            // Nombre_categoria
+            // 
+            this.Nombre_categoria.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Nombre_categoria.DataPropertyName = "Nombre_categoria";
+            this.Nombre_categoria.HeaderText = "Nombre_categoria";
+            this.Nombre_categoria.Name = "Nombre_categoria";
+            this.Nombre_categoria.ReadOnly = true;
             // 
             // Descripcion
             // 
@@ -244,6 +254,7 @@
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id_categoria;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre_categoria;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn Valor;
         private System.Windows.Forms.DataGridViewTextBoxColumn fecha_condicion;

@@ -40,6 +40,8 @@ namespace UI.Escritorio
         public ABMSocios()
         {
             InitializeComponent();
+            this.cargarCategorias();
+            
         }
        
 
@@ -63,6 +65,14 @@ namespace UI.Escritorio
 
         #region METODOS
 
+        public void cargarCategorias()
+        {
+            CategoriaLogic catl = new CategoriaLogic();
+            this.cbCategoria.DataSource = catl.TraerCategorias();
+
+        }
+
+
         public override void MapearDeDatos()
         {
 
@@ -73,7 +83,9 @@ namespace UI.Escritorio
             this.dtFecha.Value = Convert.ToDateTime(this.Socioactual.FechaNac);
             this.cbTipo.Text = Convert.ToString(this.Socioactual.Tipo);
             this.cbCategoria.Text = Convert.ToString(this.Socioactual.Categoria);
-            this.cbEstado.Text = this.Socioactual.EstadoSocio;
+            this.cbEstado.Text = Convert.ToString(this.Socioactual.EstadoSocio);
+            this.txtId_Categoria.Text = Convert.ToString(this.Socioactual.Id_categoria);
+
             switch (Modo)
             {
                 case ModoForm.Alta:
@@ -116,6 +128,7 @@ namespace UI.Escritorio
                     Socioactual.Categoria = Convert.ToString(this.cbCategoria.SelectedItem);
                     Socioactual.EstadoSocio = Convert.ToString(this.cbEstado.SelectedItem);
                     Socioactual.Habilitado = Convert.ToInt32(this.cbEstado.SelectedIndex);
+                    Socioactual.Id_categoria = Convert.ToInt32(this.txtId_Categoria.Text);
                     Socioactual.Estado = BusinessEntities.Estados.Nuevo;
 
                     break;
@@ -134,6 +147,7 @@ namespace UI.Escritorio
                     Socioactual.Categoria = Convert.ToString(this.cbCategoria.SelectedItem);
                     Socioactual.EstadoSocio = Convert.ToString(this.cbEstado.SelectedItem);
                     Socioactual.Habilitado = Convert.ToInt32(this.cbEstado.SelectedIndex);
+                    Socioactual.Id_categoria = Convert.ToInt32(this.txtId_Categoria.Text);
                     Socioactual.Estado = BusinessEntities.Estados.Modificar;
                     break;
 
@@ -196,6 +210,7 @@ namespace UI.Escritorio
             this.cbCategoria.Text = string.Empty;
             this.cbTipo.Text = string.Empty;
             this.cbEstado.Text = string.Empty;
+            this.txtId_Categoria.Text = string.Empty;
         }
 
 
@@ -238,6 +253,22 @@ namespace UI.Escritorio
             this.Limpiar();
         }
 
+        private void ABMSocios_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+
+        private void cbCategoria_SelectedValueChanged(object sender, EventArgs e)
+        {
+            
+            int id;
+            CategoriaLogic catl = new CategoriaLogic();
+            id = catl.TraerIdCategoria(this.cbCategoria.SelectedItem.ToString());
+            this.txtId_Categoria.Text = Convert.ToString(id);
+
+        }
+
 
         #endregion
 
@@ -258,6 +289,15 @@ namespace UI.Escritorio
 
         }
         #endregion
+
+       
+
+        private void cbCategoria_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        
 
         
 

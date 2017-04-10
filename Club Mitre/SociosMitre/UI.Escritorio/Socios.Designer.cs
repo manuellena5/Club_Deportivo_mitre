@@ -252,7 +252,7 @@
             // Categoria
             // 
             this.Categoria.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Categoria.DataPropertyName = "categoria";
+            this.Categoria.DataPropertyName = "Categoria";
             this.Categoria.HeaderText = "Categoria";
             this.Categoria.Name = "Categoria";
             this.Categoria.ReadOnly = true;

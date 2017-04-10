@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnAceptar = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.dtFecha = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
@@ -38,16 +37,18 @@
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtNroSocio = new System.Windows.Forms.TextBox();
-            this.btnSalir = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.cbTipo = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.cbCategoria = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtDni = new System.Windows.Forms.TextBox();
+            this.btnAceptar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnSalir = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.cbEstado = new System.Windows.Forms.ComboBox();
+            this.txtId_Categoria = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,7 +57,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39.11111F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60.88889F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 170F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 173F));
             this.tableLayoutPanel1.Controls.Add(this.label5, 0, 7);
             this.tableLayoutPanel1.Controls.Add(this.dtFecha, 1, 7);
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 3);
@@ -76,6 +77,7 @@
             this.tableLayoutPanel1.Controls.Add(this.btnSalir, 2, 9);
             this.tableLayoutPanel1.Controls.Add(this.label8, 0, 8);
             this.tableLayoutPanel1.Controls.Add(this.cbEstado, 1, 8);
+            this.tableLayoutPanel1.Controls.Add(this.txtId_Categoria, 2, 5);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -94,16 +96,6 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(471, 447);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // btnAceptar
-            // 
-            this.btnAceptar.Location = new System.Drawing.Point(3, 408);
-            this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(75, 27);
-            this.btnAceptar.TabIndex = 12;
-            this.btnAceptar.Text = "Aceptar";
-            this.btnAceptar.UseVisualStyleBackColor = true;
-            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -116,7 +108,7 @@
             // dtFecha
             // 
             this.dtFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtFecha.Location = new System.Drawing.Point(120, 245);
+            this.dtFecha.Location = new System.Drawing.Point(119, 245);
             this.dtFecha.MaxDate = new System.DateTime(2017, 1, 5, 0, 0, 0, 0);
             this.dtFecha.MinDate = new System.DateTime(1789, 1, 1, 0, 0, 0, 0);
             this.dtFecha.Name = "dtFecha";
@@ -135,7 +127,7 @@
             // 
             // txtApellido
             // 
-            this.txtApellido.Location = new System.Drawing.Point(120, 101);
+            this.txtApellido.Location = new System.Drawing.Point(119, 101);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(147, 20);
             this.txtApellido.TabIndex = 5;
@@ -151,7 +143,7 @@
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(120, 63);
+            this.txtNombre.Location = new System.Drawing.Point(119, 63);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(147, 20);
             this.txtNombre.TabIndex = 3;
@@ -167,32 +159,12 @@
             // 
             // txtNroSocio
             // 
-            this.txtNroSocio.Location = new System.Drawing.Point(120, 33);
+            this.txtNroSocio.Location = new System.Drawing.Point(119, 33);
             this.txtNroSocio.Name = "txtNroSocio";
             this.txtNroSocio.ReadOnly = true;
             this.txtNroSocio.Size = new System.Drawing.Size(75, 20);
             this.txtNroSocio.TabIndex = 1;
             this.txtNroSocio.TextChanged += new System.EventHandler(this.txtNroSocio_TextChanged);
-            // 
-            // btnSalir
-            // 
-            this.btnSalir.Location = new System.Drawing.Point(303, 408);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(75, 27);
-            this.btnSalir.TabIndex = 13;
-            this.btnSalir.Text = "Salir";
-            this.btnSalir.UseVisualStyleBackColor = true;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.Location = new System.Drawing.Point(120, 408);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 16;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // label6
             // 
@@ -209,7 +181,7 @@
             this.cbTipo.Items.AddRange(new object[] {
             "Club",
             "Mutual"});
-            this.cbTipo.Location = new System.Drawing.Point(120, 135);
+            this.cbTipo.Location = new System.Drawing.Point(119, 135);
             this.cbTipo.Name = "cbTipo";
             this.cbTipo.Size = new System.Drawing.Size(147, 21);
             this.cbTipo.TabIndex = 11;
@@ -232,10 +204,12 @@
             "Mayor",
             "Gratis",
             "Vitalicio"});
-            this.cbCategoria.Location = new System.Drawing.Point(120, 171);
+            this.cbCategoria.Location = new System.Drawing.Point(119, 171);
             this.cbCategoria.Name = "cbCategoria";
             this.cbCategoria.Size = new System.Drawing.Size(147, 21);
             this.cbCategoria.TabIndex = 15;
+            this.cbCategoria.SelectedIndexChanged += new System.EventHandler(this.cbCategoria_SelectedIndexChanged);
+            this.cbCategoria.SelectedValueChanged += new System.EventHandler(this.cbCategoria_SelectedValueChanged);
             // 
             // label4
             // 
@@ -248,10 +222,40 @@
             // 
             // txtDni
             // 
-            this.txtDni.Location = new System.Drawing.Point(120, 213);
+            this.txtDni.Location = new System.Drawing.Point(119, 213);
             this.txtDni.Name = "txtDni";
             this.txtDni.Size = new System.Drawing.Size(147, 20);
             this.txtDni.TabIndex = 7;
+            // 
+            // btnAceptar
+            // 
+            this.btnAceptar.Location = new System.Drawing.Point(3, 408);
+            this.btnAceptar.Name = "btnAceptar";
+            this.btnAceptar.Size = new System.Drawing.Size(75, 27);
+            this.btnAceptar.TabIndex = 12;
+            this.btnAceptar.Text = "Aceptar";
+            this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Location = new System.Drawing.Point(119, 408);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.TabIndex = 16;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // btnSalir
+            // 
+            this.btnSalir.Location = new System.Drawing.Point(300, 408);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(75, 27);
+            this.btnSalir.TabIndex = 13;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // label8
             // 
@@ -268,10 +272,19 @@
             this.cbEstado.Items.AddRange(new object[] {
             "Inactivo",
             "Activo"});
-            this.cbEstado.Location = new System.Drawing.Point(120, 295);
+            this.cbEstado.Location = new System.Drawing.Point(119, 295);
             this.cbEstado.Name = "cbEstado";
             this.cbEstado.Size = new System.Drawing.Size(121, 21);
             this.cbEstado.TabIndex = 18;
+            // 
+            // txtId_Categoria
+            // 
+            this.txtId_Categoria.Location = new System.Drawing.Point(300, 171);
+            this.txtId_Categoria.Name = "txtId_Categoria";
+            this.txtId_Categoria.ReadOnly = true;
+            this.txtId_Categoria.Size = new System.Drawing.Size(100, 20);
+            this.txtId_Categoria.TabIndex = 19;
+            this.txtId_Categoria.Visible = false;
             // 
             // ABMSocios
             // 
@@ -281,6 +294,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "ABMSocios";
             this.Text = "ABMSocios";
+            this.Load += new System.EventHandler(this.ABMSocios_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
@@ -309,5 +323,6 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox cbEstado;
+        private System.Windows.Forms.TextBox txtId_Categoria;
     }
 }

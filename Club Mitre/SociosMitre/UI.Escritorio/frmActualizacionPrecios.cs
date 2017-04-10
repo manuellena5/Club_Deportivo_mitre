@@ -77,7 +77,7 @@ namespace UI.Escritorio
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            int ID = ((Socio)this.dataListado.SelectedRows[0].DataBoundItem).NroSocio;
+            int ID = ((Categoria)this.dataListado.SelectedRows[0].DataBoundItem).Id_categoria;
             frmAMBcategoria frm = new frmAMBcategoria(ID, ApplicationForm.ModoForm.Modificacion);
             frm.ShowDialog();
             this.listar();
@@ -85,11 +85,11 @@ namespace UI.Escritorio
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            int ID = ((Categoria)this.dataListado.SelectedRows[0].DataBoundItem).Id_categoria;
-            frmAMBcategoria frm = new frmAMBcategoria(ID, ApplicationForm.ModoForm.Baja);
-            frm.BloquearControles(true);
-            frm.ShowDialog();
-            this.listar();
+            //int ID = ((Categoria)this.dataListado.SelectedRows[0].DataBoundItem).Id_categoria;
+            //frmAMBcategoria frm = new frmAMBcategoria(ID, ApplicationForm.ModoForm.Baja);
+            //frm.BloquearControles(true);
+            //frm.ShowDialog();
+            //this.listar();
 
         }
 

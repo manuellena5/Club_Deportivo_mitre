@@ -26,7 +26,7 @@ namespace Datos
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdSocios = new SqlCommand("select soc.nro_socio,soc.nombre,soc.apellidos,soc.dni,soc.fecha_nac,soc.tipo,c.descripcion,soc.estado from Socios soc inner join categoria c on c.id_categoria = soc.id_categoria", SqlConn);
+                SqlCommand cmdSocios = new SqlCommand("select soc.nro_socio,soc.nombre,soc.apellidos,soc.dni,soc.fecha_nac,soc.tipo,cat.nombre_categoria,soc.estado from Socios soc inner join categoria cat on cat.id_categoria = soc.id_categoria order by soc.nro_socio,soc.nombre,soc.apellidos,soc.tipo,cat.nombre_categoria", SqlConn);
                 SqlDataReader drSocios = cmdSocios.ExecuteReader();
                 while (drSocios.Read())
                 {
@@ -37,7 +37,7 @@ namespace Datos
                     soc.Dni = (int)drSocios["dni"];
                     soc.FechaNac = (DateTime)drSocios["fecha_nac"];
                     soc.Tipo = (string)drSocios["tipo"];
-                    soc.Categoria = (string)drSocios["descipcion"];
+                    soc.Categoria = (string)drSocios["nombre_categoria"];
 
                     soc.Habilitado = Convert.ToInt32(drSocios["estado"]);
 
@@ -80,14 +80,16 @@ namespace Datos
                 {
                     int bandera = 0;
                     Socio soc = new Socio();
-                    soc.NroSocio = (int)drSocios["nro_socio"];
-                    soc.Nombre = (string)drSocios["nombre"];
-                    soc.Apellido = (string)drSocios["apellidos"];
-                    soc.Dni = (int)drSocios["dni"];
-                    soc.FechaNac = (DateTime)drSocios["fecha_nac"];
-                    soc.Tipo = (string)drSocios["tipo"];
-                    soc.Categoria = (string)drSocios["descripcion"];
-                    soc.UltAnio = (int)drSocios["anio_cuota"];
+
+                    soc.NroSocio = drSocios.IsDBNull(0) ? Convert.ToInt32(string.Empty) : (Convert.ToInt32(drSocios["nro_socio"]));
+                    soc.Nombre = drSocios.IsDBNull(1) ? string.Empty : drSocios["nombre"].ToString();
+                    soc.Apellido = drSocios.IsDBNull(2) ? string.Empty : ((string)drSocios["apellidos"]);
+                    soc.Dni = drSocios.IsDBNull(3) ? Convert.ToInt32(string.Empty) : (Convert.ToInt32(drSocios["dni"]));
+                    soc.FechaNac = drSocios.IsDBNull(4) ? Convert.ToDateTime(string.Empty) : Convert.ToDateTime(drSocios["fecha_nac"]);
+                    soc.Tipo = drSocios.IsDBNull(5) ? string.Empty : drSocios["tipo"].ToString();
+                    soc.Categoria = drSocios.IsDBNull(6) ? string.Empty : drSocios["nombre_categoria"].ToString();
+                    soc.UltAnio = drSocios.IsDBNull(7) ? Convert.ToInt32(string.Empty) : (Convert.ToInt32(drSocios["anio_cuota"]));
+
 
                     foreach (int mes in Enum.GetValues(typeof(meses)))
                     {
@@ -141,7 +143,7 @@ namespace Datos
            try
            {
                this.OpenConnection();
-               SqlCommand cmdsocios = new SqlCommand("select soc.nro_socio,soc.nombre,soc.apellidos,soc.dni,soc.fecha_nac,soc.tipo,cat.descripcion,soc.estado from Socios soc inner join categoria cat on cat.id_categoria = soc.id_categoria where soc.apellidos like @textobuscar + '%'", SqlConn);
+               SqlCommand cmdsocios = new SqlCommand("select soc.nro_socio,soc.nombre,soc.apellidos,soc.dni,soc.fecha_nac,soc.tipo,cat.nombre_categoria,soc.estado from Socios soc inner join categoria cat on cat.id_categoria = soc.id_categoria where soc.apellidos like @textobuscar + '%' order by soc.nro_socio,soc.nombre,soc.apellidos,soc.tipo,cat.nombre_categoria", SqlConn);
                cmdsocios.Parameters.Add("@textobuscar", SqlDbType.VarChar, 50).Value = Txtbuscado;
 
                SqlDataReader drSocios = cmdsocios.ExecuteReader();
@@ -156,7 +158,7 @@ namespace Datos
                    soc.Dni = drSocios.IsDBNull(3) ? Convert.ToInt32(string.Empty) : (Convert.ToInt32(drSocios["dni"]));
                    soc.FechaNac = drSocios.IsDBNull(4) ? Convert.ToDateTime(string.Empty) : Convert.ToDateTime(drSocios["fecha_nac"]);
                    soc.Tipo = drSocios.IsDBNull(5) ? string.Empty : drSocios["tipo"].ToString();
-                   soc.Categoria = drSocios.IsDBNull(6) ? string.Empty : drSocios["descripcion"].ToString();
+                   soc.Categoria = drSocios.IsDBNull(6) ? string.Empty : drSocios["nombre_categoria"].ToString();
 
                    soc.Habilitado = Convert.ToInt32(drSocios["estado"]);
 
@@ -200,15 +202,16 @@ namespace Datos
                     Socio soc = new Socio();
 
                     int bandera = 0;
+
+                    soc.NroSocio = drSocios.IsDBNull(0) ? Convert.ToInt32(string.Empty) : (Convert.ToInt32(drSocios["nro_socio"]));
+                    soc.Nombre = drSocios.IsDBNull(1) ? string.Empty : drSocios["nombre"].ToString();
+                    soc.Apellido = drSocios.IsDBNull(2) ? string.Empty : ((string)drSocios["apellidos"]);
+                    soc.Dni = drSocios.IsDBNull(3) ? Convert.ToInt32(string.Empty) : (Convert.ToInt32(drSocios["dni"]));
+                    soc.FechaNac = drSocios.IsDBNull(4) ? Convert.ToDateTime(string.Empty) : Convert.ToDateTime(drSocios["fecha_nac"]);
+                    soc.Tipo = drSocios.IsDBNull(5) ? string.Empty : drSocios["tipo"].ToString();
+                    soc.Categoria = drSocios.IsDBNull(6) ? string.Empty : drSocios["nombre_categoria"].ToString();
+                    soc.UltAnio = drSocios.IsDBNull(7) ? Convert.ToInt32(string.Empty) : (Convert.ToInt32(drSocios["anio_cuota"]));
                     
-                    soc.NroSocio = (int)drSocios["nro_socio"];
-                    soc.Nombre = (string)drSocios["nombre"];
-                    soc.Apellido = (string)drSocios["apellidos"];
-                    soc.Dni = (int)drSocios["dni"];
-                    soc.FechaNac = (DateTime)drSocios["fecha_nac"];
-                    soc.Tipo = (string)drSocios["tipo"];
-                    soc.Categoria = (string)drSocios["categoria"];
-                    soc.UltAnio = (int)drSocios["anio_cuota"];
 
                     foreach (int mes in Enum.GetValues(typeof(meses)))
                     {
@@ -262,20 +265,22 @@ namespace Datos
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdSocios = new SqlCommand("select soc.nro_socio,soc.nombre,soc.apellidos,soc.dni,soc.fecha_nac,soc.tipo,soc.categoria,cat.descripcion,soc.estado from Socios soc inner join categoria cat on cat.id_categoria = soc.id_categoria where soc.nro_socio =@ID", SqlConn);
+                SqlCommand cmdSocios = new SqlCommand("select soc.nro_socio,soc.nombre,soc.apellidos,soc.dni,soc.fecha_nac,soc.tipo,cat.nombre_categoria,soc.estado,soc.id_categoria from Socios soc inner join categoria cat on cat.id_categoria = soc.id_categoria where soc.nro_socio =@ID order by soc.nro_socio,soc.nombre,soc.apellidos,soc.tipo,cat.nombre_categoria", SqlConn);
                 cmdSocios.Parameters.Add("@ID", SqlDbType.Int).Value = ID;
                 SqlDataReader drSocios = cmdSocios.ExecuteReader();
                 if (drSocios.Read())
-                {                    
-                    soc.NroSocio = (int)drSocios["nro_socio"];
-                    soc.Nombre = (string)drSocios["nombre"];
-                    soc.Apellido = (string)drSocios["apellidos"];
-                    soc.Dni = (int)drSocios["dni"];
-                    soc.FechaNac = (DateTime)drSocios["fecha_nac"];
-                    soc.Tipo = (string)drSocios["tipo"];
-                    soc.Categoria = (string)drSocios["descripcion"];
-                    soc.Habilitado = Convert.ToInt32(drSocios["estado"]);
+                {
 
+                    soc.NroSocio = drSocios.IsDBNull(0) ? Convert.ToInt32(string.Empty) : (Convert.ToInt32(drSocios["nro_socio"]));
+                    soc.Nombre = drSocios.IsDBNull(1) ? string.Empty : drSocios["nombre"].ToString();
+                    soc.Apellido = drSocios.IsDBNull(2) ? string.Empty : ((string)drSocios["apellidos"]);
+                    soc.Dni = drSocios.IsDBNull(3) ? Convert.ToInt32(string.Empty) : (Convert.ToInt32(drSocios["dni"]));
+                    soc.FechaNac = drSocios.IsDBNull(4) ? Convert.ToDateTime(string.Empty) : Convert.ToDateTime(drSocios["fecha_nac"]);
+                    soc.Tipo = drSocios.IsDBNull(5) ? string.Empty : drSocios["tipo"].ToString();
+                    soc.Categoria = drSocios.IsDBNull(6) ? string.Empty : drSocios["nombre_categoria"].ToString();                  
+                    soc.Habilitado = Convert.ToInt32(drSocios["estado"]);
+                    soc.Id_categoria = Convert.ToInt32(drSocios["id_categoria"]);
+                    
                     if ((Convert.ToInt32(drSocios["estado"])) == 0)
                     {
                         soc.EstadoSocio = "Inactivo";

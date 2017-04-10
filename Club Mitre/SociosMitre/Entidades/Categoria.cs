@@ -16,11 +16,11 @@ namespace Entidades
         private double _Valor;
         private string _Descripcion;
         private DateTime _Fecha_Condicion;
-
+        private int _Habilitado;
+        private string _Nombre_categoria;
+        private string _EstadoCategoria;
 
         
-
-       
 
   
         #endregion
@@ -55,8 +55,24 @@ namespace Entidades
      set { _Fecha_Condicion = value; }
     }
 
+    public int Habilitado
+    {
+        get { return _Habilitado; }
+        set { _Habilitado = value; }
+    }
 
 
+    public string Nombre_categoria
+    {
+        get { return _Nombre_categoria; }
+        set { _Nombre_categoria = value; }
+    }
+
+    public string EstadoCategoria
+    {
+        get { return _EstadoCategoria; }
+        set { _EstadoCategoria = value; }
+    }
         #endregion
 
 
@@ -65,12 +81,15 @@ namespace Entidades
        { 
        }
 
-        public Categoria(int id, string descripcion, double valor, DateTime fecha)
+        public Categoria(int id, string descripcion, double valor, DateTime fecha,int estadoCategoria,int habilitado,string nombre_categoria)
        {
            this.Id_categoria = id;
            this.Descripcion = descripcion;
            this.Valor = valor;
            this.Fecha_condicion = fecha;
+           this.Habilitado = estadoCategoria;
+           this.Nombre_categoria = nombre_categoria;
+           this.Habilitado = habilitado;
 
 
        }

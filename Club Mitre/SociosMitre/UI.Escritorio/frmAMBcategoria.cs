@@ -72,7 +72,8 @@ namespace UI.Escritorio
             this.txtId_categoria.Text = Convert.ToString(this.Categoriaactual.Id_categoria);
             this.txtDescripcion.Text = this.Categoriaactual.Descripcion;
             this.txtValor.Text = Convert.ToString(this.Categoriaactual.Valor);
-            
+            this.txtNombre_categoria.Text = Convert.ToString(this.Categoriaactual.Nombre_categoria);
+            this.cbEstado.Text = Convert.ToString(this.Categoriaactual.EstadoCategoria);
             this.dtFecha_condicion.Value = Convert.ToDateTime(this.Categoriaactual.Fecha_condicion);
     
             switch (Modo)
@@ -109,9 +110,13 @@ namespace UI.Escritorio
                 case ModoForm.Alta:
                     Categoria cat = new Categoria();
                     Categoriaactual = cat;
+                    
                     Categoriaactual.Descripcion = this.txtDescripcion.Text;
                     Categoriaactual.Valor = Convert.ToDouble(this.txtValor.Text);                   
-                    Categoriaactual.Fecha_condicion = this.dtFecha_condicion.Value;                  
+                    Categoriaactual.Fecha_condicion = this.dtFecha_condicion.Value;
+                    Categoriaactual.Nombre_categoria = this.txtNombre_categoria.Text;
+                    Categoriaactual.Habilitado = Convert.ToInt32(this.cbEstado.SelectedIndex);
+                    Categoriaactual.EstadoCategoria = Convert.ToString(this.cbEstado.SelectedItem);
                     Categoriaactual.Estado = BusinessEntities.Estados.Nuevo;
 
                     break;
@@ -124,7 +129,10 @@ namespace UI.Escritorio
                     Categoriaactual.Id_categoria = Convert.ToInt32(this.txtId_categoria.Text);
                     Categoriaactual.Descripcion = this.txtDescripcion.Text;
                     Categoriaactual.Valor = Convert.ToDouble(this.txtValor.Text);                   
-                    Categoriaactual.Fecha_condicion = this.dtFecha_condicion.Value;   
+                    Categoriaactual.Fecha_condicion = this.dtFecha_condicion.Value; 
+                    Categoriaactual.Nombre_categoria = this.txtNombre_categoria.Text;
+                    Categoriaactual.Habilitado = Convert.ToInt32(this.cbEstado.SelectedIndex);
+                    Categoriaactual.EstadoCategoria = Convert.ToString(this.cbEstado.SelectedItem);
                     Categoriaactual.Estado = BusinessEntities.Estados.Modificar;
                     break;
 
@@ -152,7 +160,7 @@ namespace UI.Escritorio
 
         public override bool Validar()
         {
-            if (this.txtDescripcion.Text != string.Empty && this.txtValor.Text != string.Empty && this.dtFecha_condicion.Text != string.Empty )
+            if (this.txtDescripcion.Text != string.Empty && this.txtValor.Text != string.Empty && this.dtFecha_condicion.Text != string.Empty && this.txtNombre_categoria.Text != string.Empty)
             {
                 return true;
             }
@@ -182,9 +190,11 @@ namespace UI.Escritorio
         {
             this.txtDescripcion.Text = string.Empty;
             this.txtValor.Text = string.Empty;
-           this.txtEdad.Text = string.Empty
+            this.txtEdad.Text = string.Empty;
             this.dtFecha_condicion.Text = string.Empty;
             this.txtId_categoria.Text = string.Empty;
+            this.txtNombre_categoria.Text = string.Empty;
+            this.cbEstado.Text = string.Empty;
            
         }
 
@@ -193,7 +203,8 @@ namespace UI.Escritorio
         {
             this.txtDescripcion.Enabled = !valor;
             this.txtValor.Enabled = !valor;;
-
+            this.txtNombre_categoria.Enabled = !valor;
+            this.cbEstado.Enabled = !valor;
             this.dtFecha_condicion.Enabled = !valor; ;
             
 

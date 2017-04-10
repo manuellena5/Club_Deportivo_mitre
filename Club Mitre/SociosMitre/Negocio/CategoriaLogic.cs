@@ -33,6 +33,18 @@ namespace Negocio
             return CatD.GetOne(id);
         }
 
+        public List<string> TraerCategorias()
+        {
+            return CatD.TraerCategorias();
+
+        }
+
+        public int TraerIdCategoria(string nombre_cat)
+        {
+            return CatD.TraerIdCategoria(nombre_cat);
+        }
+
+
         public void Delete(Categoria cat)
         {
             CatD.Save(cat);

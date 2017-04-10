@@ -75,6 +75,12 @@
     <Compile Include="frmHistorialPagosXSocio.Designer.cs">
       <DependentUpon>frmHistorialPagosXSocio.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmImpresionDeTickets.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmImpresionDeTickets.Designer.cs">
+      <DependentUpon>frmImpresionDeTickets.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPagoCuotas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +92,12 @@
     </Compile>
     <Compile Include="frmListaSocios.Designer.cs">
       <DependentUpon>frmListaSocios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTicket.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTicket.Designer.cs">
+      <DependentUpon>frmTicket.cs</DependentUpon>
     </Compile>
     <Compile Include="Principal.cs">
       <SubType>Form</SubType>
@@ -113,11 +125,17 @@
     <EmbeddedResource Include="frmHistorialPagosXSocio.resx">
       <DependentUpon>frmHistorialPagosXSocio.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmImpresionDeTickets.resx">
+      <DependentUpon>frmImpresionDeTickets.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmPagoCuotas.resx">
       <DependentUpon>frmPagoCuotas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmListaSocios.resx">
       <DependentUpon>frmListaSocios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTicket.resx">
+      <DependentUpon>frmTicket.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>
@@ -166,6 +184,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icono-Eliminar.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Escudo2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
