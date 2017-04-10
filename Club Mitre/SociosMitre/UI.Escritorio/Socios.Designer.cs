@@ -38,6 +38,10 @@
             this.tsbNuevo = new System.Windows.Forms.ToolStripButton();
             this.tsbEditar = new System.Windows.Forms.ToolStripButton();
             this.tsbEliminar = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.txtBuscar = new System.Windows.Forms.ToolStripTextBox();
+            this.btnBuscar = new System.Windows.Forms.ToolStripButton();
             this.NroSocio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,8 +49,9 @@
             this.Categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Dni = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaNac = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Mes_cuota = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Anio_cuota = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UltMes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UltAnio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tscSocios.ContentPanel.SuspendLayout();
             this.tscSocios.TopToolStripPanel.SuspendLayout();
             this.tscSocios.SuspendLayout();
@@ -61,11 +66,11 @@
             // tscSocios.ContentPanel
             // 
             this.tscSocios.ContentPanel.Controls.Add(this.tlpSocios);
-            this.tscSocios.ContentPanel.Size = new System.Drawing.Size(818, 420);
+            this.tscSocios.ContentPanel.Size = new System.Drawing.Size(830, 420);
             this.tscSocios.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tscSocios.Location = new System.Drawing.Point(0, 0);
             this.tscSocios.Name = "tscSocios";
-            this.tscSocios.Size = new System.Drawing.Size(818, 445);
+            this.tscSocios.Size = new System.Drawing.Size(830, 445);
             this.tscSocios.TabIndex = 0;
             this.tscSocios.Text = "toolStripContainer1";
             // 
@@ -88,7 +93,7 @@
             this.tlpSocios.RowCount = 2;
             this.tlpSocios.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpSocios.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpSocios.Size = new System.Drawing.Size(818, 420);
+            this.tlpSocios.Size = new System.Drawing.Size(830, 420);
             this.tlpSocios.TabIndex = 0;
             // 
             // dgvSocios
@@ -104,21 +109,22 @@
             this.Categoria,
             this.Dni,
             this.FechaNac,
-            this.Mes_cuota,
-            this.Anio_cuota});
+            this.UltMes,
+            this.UltAnio,
+            this.Estado});
             this.tlpSocios.SetColumnSpan(this.dgvSocios, 2);
             this.dgvSocios.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvSocios.Location = new System.Drawing.Point(3, 3);
             this.dgvSocios.Name = "dgvSocios";
             this.dgvSocios.ReadOnly = true;
             this.dgvSocios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvSocios.Size = new System.Drawing.Size(812, 385);
+            this.dgvSocios.Size = new System.Drawing.Size(824, 385);
             this.dgvSocios.TabIndex = 0;
             // 
             // btnActualizar
             // 
             this.btnActualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnActualizar.Location = new System.Drawing.Point(659, 394);
+            this.btnActualizar.Location = new System.Drawing.Point(671, 394);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(75, 23);
             this.btnActualizar.TabIndex = 1;
@@ -128,7 +134,7 @@
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(740, 394);
+            this.btnSalir.Location = new System.Drawing.Point(752, 394);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 23);
             this.btnSalir.TabIndex = 2;
@@ -142,10 +148,14 @@
             this.tsSocios.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbNuevo,
             this.tsbEditar,
-            this.tsbEliminar});
+            this.tsbEliminar,
+            this.toolStripSeparator1,
+            this.toolStripLabel1,
+            this.txtBuscar,
+            this.btnBuscar});
             this.tsSocios.Location = new System.Drawing.Point(3, 0);
             this.tsSocios.Name = "tsSocios";
-            this.tsSocios.Size = new System.Drawing.Size(81, 25);
+            this.tsSocios.Size = new System.Drawing.Size(254, 25);
             this.tsSocios.TabIndex = 0;
             // 
             // tsbNuevo
@@ -180,6 +190,32 @@
             this.tsbEliminar.Text = "toolStripButton3";
             this.tsbEliminar.ToolTipText = "Eliminar";
             this.tsbEliminar.Click += new System.EventHandler(this.tsbEliminar_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(42, 22);
+            this.toolStripLabel1.Text = "Buscar";
+            // 
+            // txtBuscar
+            // 
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(100, 25);
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnBuscar.Image = global::UI.Escritorio.Properties.Resources.lupa;
+            this.btnBuscar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(23, 22);
+            this.btnBuscar.Text = "toolStripButton1";
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // NroSocio
             // 
@@ -239,27 +275,35 @@
             this.FechaNac.ReadOnly = true;
             this.FechaNac.Visible = false;
             // 
-            // Mes_cuota
+            // UltMes
             // 
-            this.Mes_cuota.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Mes_cuota.DataPropertyName = "Mes_cuota";
-            this.Mes_cuota.HeaderText = "Ult_Mes_Pago";
-            this.Mes_cuota.Name = "Mes_cuota";
-            this.Mes_cuota.ReadOnly = true;
+            this.UltMes.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.UltMes.DataPropertyName = "UltMes";
+            this.UltMes.HeaderText = "Ult Mes Pago";
+            this.UltMes.Name = "UltMes";
+            this.UltMes.ReadOnly = true;
             // 
-            // Anio_cuota
+            // UltAnio
             // 
-            this.Anio_cuota.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Anio_cuota.DataPropertyName = "Anio_cuota";
-            this.Anio_cuota.HeaderText = "Año de cuota";
-            this.Anio_cuota.Name = "Anio_cuota";
-            this.Anio_cuota.ReadOnly = true;
+            this.UltAnio.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.UltAnio.DataPropertyName = "UltAnio";
+            this.UltAnio.HeaderText = "Año de cuota";
+            this.UltAnio.Name = "UltAnio";
+            this.UltAnio.ReadOnly = true;
+            // 
+            // Estado
+            // 
+            this.Estado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Estado.DataPropertyName = "EstadoSocio";
+            this.Estado.HeaderText = "Estado";
+            this.Estado.Name = "Estado";
+            this.Estado.ReadOnly = true;
             // 
             // Socios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(818, 445);
+            this.ClientSize = new System.Drawing.Size(830, 445);
             this.Controls.Add(this.tscSocios);
             this.Name = "Socios";
             this.Text = "Socios";
@@ -288,6 +332,10 @@
         private System.Windows.Forms.ToolStripButton tsbNuevo;
         private System.Windows.Forms.ToolStripButton tsbEditar;
         private System.Windows.Forms.ToolStripButton tsbEliminar;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
+        private System.Windows.Forms.ToolStripTextBox txtBuscar;
+        private System.Windows.Forms.ToolStripButton btnBuscar;
         private System.Windows.Forms.DataGridViewTextBoxColumn NroSocio;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn Apellido;
@@ -295,8 +343,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Categoria;
         private System.Windows.Forms.DataGridViewTextBoxColumn Dni;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaNac;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Mes_cuota;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Anio_cuota;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UltMes;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UltAnio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
     }
 }
 

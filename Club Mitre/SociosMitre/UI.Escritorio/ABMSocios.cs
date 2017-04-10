@@ -73,6 +73,7 @@ namespace UI.Escritorio
             this.dtFecha.Value = Convert.ToDateTime(this.Socioactual.FechaNac);
             this.cbTipo.Text = Convert.ToString(this.Socioactual.Tipo);
             this.cbCategoria.Text = Convert.ToString(this.Socioactual.Categoria);
+            this.cbEstado.Text = this.Socioactual.EstadoSocio;
             switch (Modo)
             {
                 case ModoForm.Alta:
@@ -113,6 +114,8 @@ namespace UI.Escritorio
                     Socioactual.FechaNac = this.dtFecha.Value;
                     Socioactual.Tipo = Convert.ToString(this.cbTipo.SelectedItem);
                     Socioactual.Categoria = Convert.ToString(this.cbCategoria.SelectedItem);
+                    Socioactual.EstadoSocio = Convert.ToString(this.cbEstado.SelectedItem);
+                    Socioactual.Habilitado = Convert.ToInt32(this.cbEstado.SelectedIndex);
                     Socioactual.Estado = BusinessEntities.Estados.Nuevo;
 
                     break;
@@ -129,6 +132,8 @@ namespace UI.Escritorio
                     Socioactual.FechaNac = this.dtFecha.Value;
                     Socioactual.Tipo = Convert.ToString(this.cbTipo.SelectedItem);
                     Socioactual.Categoria = Convert.ToString(this.cbCategoria.SelectedItem);
+                    Socioactual.EstadoSocio = Convert.ToString(this.cbEstado.SelectedItem);
+                    Socioactual.Habilitado = Convert.ToInt32(this.cbEstado.SelectedIndex);
                     Socioactual.Estado = BusinessEntities.Estados.Modificar;
                     break;
 
@@ -190,6 +195,21 @@ namespace UI.Escritorio
             this.dtFecha.Text = string.Empty;
             this.cbCategoria.Text = string.Empty;
             this.cbTipo.Text = string.Empty;
+            this.cbEstado.Text = string.Empty;
+        }
+
+
+        public void BloquearControles(bool valor)
+        {
+            this.txtApellido.Enabled = !valor;
+            this.txtDni.Enabled = !valor;
+            this.txtNombre.Enabled = !valor;
+            this.dtFecha.Enabled = !valor;
+            this.cbCategoria.Enabled = !valor;
+            this.cbTipo.Enabled = !valor;
+            this.cbEstado.Enabled = !valor;
+
+
         }
 
         #endregion

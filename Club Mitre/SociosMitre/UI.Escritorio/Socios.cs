@@ -22,6 +22,8 @@ namespace UI.Escritorio
         #region PROPIEDADES
         #endregion
 
+
+
         #region CONSTRUCTOR
 
         public Socios()
@@ -32,13 +34,15 @@ namespace UI.Escritorio
 
         #endregion
 
+
         #region METODOS
 
         public void listar()
         {
             SociosLogic socl = new SociosLogic();
 
-            this.dgvSocios.DataSource = socl.GetAll();
+            this.dgvSocios.DataSource = socl.TraerTodosEstadoActual();
+           
 
         }
 
@@ -81,8 +85,17 @@ namespace UI.Escritorio
         {
             int ID = ((Socio)this.dgvSocios.SelectedRows[0].DataBoundItem).NroSocio;
             ABMSocios frmsoc = new ABMSocios(ID, ApplicationForm.ModoForm.Baja);
-            frmsoc.ShowDialog();
+            frmsoc.BloquearControles(true);
+            frmsoc.ShowDialog();           
             this.listar();
+
+        }
+
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            SociosLogic soc = new SociosLogic();
+            dgvSocios.DataSource = soc.TraerPorApellidoEstadoActual(this.txtBuscar.Text);
         }
 
         #endregion
@@ -93,6 +106,8 @@ namespace UI.Escritorio
         {
 
         }
+
+        
 
 
     }

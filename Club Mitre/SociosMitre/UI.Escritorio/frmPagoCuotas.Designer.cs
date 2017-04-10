@@ -57,7 +57,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 41.5978F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 58.4022F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 158F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 159F));
             this.tableLayoutPanel1.Controls.Add(this.linkLabel1, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.btnAceptar, 0, 11);
             this.tableLayoutPanel1.Controls.Add(this.btnCancelar, 1, 11);
@@ -130,7 +130,7 @@
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(362, 432);
+            this.btnSalir.Location = new System.Drawing.Point(361, 432);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 23);
             this.btnSalir.TabIndex = 17;
@@ -353,20 +353,6 @@
             // lbMeses
             // 
             this.lbMeses.FormattingEnabled = true;
-            this.lbMeses.Items.AddRange(new object[] {
-            "Enero",
-            "Febrero",
-            "Marzo",
-            "Abril",
-            "Mayo",
-            "Junio",
-            "Julio",
-            "Agosto",
-            "Septiembre",
-            "Octubre",
-            "Noviembre",
-            "Diciembre",
-            "AñoCompleto"});
             this.lbMeses.Location = new System.Drawing.Point(152, 219);
             this.lbMeses.Name = "lbMeses";
             this.lbMeses.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
