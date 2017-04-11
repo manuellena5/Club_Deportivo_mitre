@@ -108,6 +108,12 @@ namespace UI.Escritorio
 
 
         #endregion
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ExportarAExcel exp1 = new ExportarAExcel();
+            exp1.ExportarDataGridViewExcel(this.dataListado);
+        }
        
 
 

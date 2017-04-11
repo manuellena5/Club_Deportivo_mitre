@@ -49,6 +49,8 @@
             this.acercadeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.categoriasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aBMCCategoriasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.importarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.importarDesdeExcelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,7 +62,8 @@
             this.pagosToolStripMenuItem,
             this.ticketsToolStripMenuItem,
             this.ayudaToolStripMenuItem1,
-            this.categoriasToolStripMenuItem});
+            this.categoriasToolStripMenuItem,
+            this.importarToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(733, 24);
@@ -94,20 +97,21 @@
             // aBMSociosToolStripMenuItem
             // 
             this.aBMSociosToolStripMenuItem.Name = "aBMSociosToolStripMenuItem";
-            this.aBMSociosToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.aBMSociosToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.aBMSociosToolStripMenuItem.Text = "ABM Socios";
             this.aBMSociosToolStripMenuItem.Click += new System.EventHandler(this.aBMSociosToolStripMenuItem_Click);
             // 
             // controlDeSociosToolStripMenuItem
             // 
             this.controlDeSociosToolStripMenuItem.Name = "controlDeSociosToolStripMenuItem";
-            this.controlDeSociosToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
-            this.controlDeSociosToolStripMenuItem.Text = "Ver estado actual";
+            this.controlDeSociosToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.controlDeSociosToolStripMenuItem.Text = "Listado de socios";
+            this.controlDeSociosToolStripMenuItem.Click += new System.EventHandler(this.controlDeSociosToolStripMenuItem_Click);
             // 
             // historialPagosToolStripMenuItem
             // 
             this.historialPagosToolStripMenuItem.Name = "historialPagosToolStripMenuItem";
-            this.historialPagosToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.historialPagosToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.historialPagosToolStripMenuItem.Text = "Historial pagos";
             this.historialPagosToolStripMenuItem.Click += new System.EventHandler(this.historialPagosToolStripMenuItem_Click);
             // 
@@ -169,30 +173,30 @@
             // contenidoToolStripMenuItem
             // 
             this.contenidoToolStripMenuItem.Name = "contenidoToolStripMenuItem";
-            this.contenidoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.contenidoToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.contenidoToolStripMenuItem.Text = "&Contenido";
             // 
             // índiceToolStripMenuItem
             // 
             this.índiceToolStripMenuItem.Name = "índiceToolStripMenuItem";
-            this.índiceToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.índiceToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.índiceToolStripMenuItem.Text = "Índic&e";
             // 
             // buscarToolStripMenuItem
             // 
             this.buscarToolStripMenuItem.Name = "buscarToolStripMenuItem";
-            this.buscarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.buscarToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.buscarToolStripMenuItem.Text = "&Buscar";
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(132, 6);
             // 
             // acercadeToolStripMenuItem
             // 
             this.acercadeToolStripMenuItem.Name = "acercadeToolStripMenuItem";
-            this.acercadeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.acercadeToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.acercadeToolStripMenuItem.Text = "&Acerca de...";
             // 
             // categoriasToolStripMenuItem
@@ -209,6 +213,21 @@
             this.aBMCCategoriasToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.aBMCCategoriasToolStripMenuItem.Text = "ABMC categorias";
             this.aBMCCategoriasToolStripMenuItem.Click += new System.EventHandler(this.aBMCCategoriasToolStripMenuItem_Click);
+            // 
+            // importarToolStripMenuItem
+            // 
+            this.importarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.importarDesdeExcelToolStripMenuItem});
+            this.importarToolStripMenuItem.Name = "importarToolStripMenuItem";
+            this.importarToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+            this.importarToolStripMenuItem.Text = "Importar";
+            // 
+            // importarDesdeExcelToolStripMenuItem
+            // 
+            this.importarDesdeExcelToolStripMenuItem.Name = "importarDesdeExcelToolStripMenuItem";
+            this.importarDesdeExcelToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.importarDesdeExcelToolStripMenuItem.Text = "Importar desde excel";
+            this.importarDesdeExcelToolStripMenuItem.Click += new System.EventHandler(this.importarDesdeExcelToolStripMenuItem_Click);
             // 
             // Principal
             // 
@@ -249,5 +268,7 @@
         private System.Windows.Forms.ToolStripMenuItem resumenDePagosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem categoriasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aBMCCategoriasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem importarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem importarDesdeExcelToolStripMenuItem;
     }
 }

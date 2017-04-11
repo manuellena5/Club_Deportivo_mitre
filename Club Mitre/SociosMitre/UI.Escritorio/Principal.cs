@@ -43,5 +43,17 @@ namespace UI.Escritorio
             frmActualizacionPrecios frm = new frmActualizacionPrecios();
             frm.ShowDialog();
         }
+
+        private void controlDeSociosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmListaSocios frm = new frmListaSocios();
+            frm.ShowDialog();
+        }
+
+        private void importarDesdeExcelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmCargarDatosDesdeExcel frm = new FrmCargarDatosDesdeExcel();
+            frm.ShowDialog();
+        }
     }
 }

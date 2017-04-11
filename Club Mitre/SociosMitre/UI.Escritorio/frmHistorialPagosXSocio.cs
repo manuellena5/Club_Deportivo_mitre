@@ -240,6 +240,12 @@ namespace UI.Escritorio
             this.Listar();
         }
 
+        private void btnExportar_Click(object sender, EventArgs e)
+        {
+            ExportarAexcel2 exportar = new ExportarAexcel2();
+            exportar.exporta_a_excel(this.dataListado);
+        }
+
         
 
         
