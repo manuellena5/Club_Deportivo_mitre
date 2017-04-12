@@ -402,7 +402,10 @@ namespace Datos
             return Lista;
         }
 
-       
+        
+        //public List<> TraerBalanceClubMutual2016 ()
+        
+
 
 
         protected void Delete(int ID, int mes, int anio)

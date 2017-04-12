@@ -23,7 +23,6 @@ namespace UI.Escritorio
         #endregion
 
 
-
         #region CONSTRUCTOR
 
         
@@ -44,11 +43,14 @@ namespace UI.Escritorio
             CategoriaLogic catl = new CategoriaLogic();
 
             this.dataListado.DataSource = catl.GetAll();
+
+            this.lbContador.Text = "Cantidad de registros: " + Convert.ToString(this.dataListado.RowCount);
            
 
         }
 
         #endregion
+
 
         #region EVENTOS
 
@@ -93,10 +95,16 @@ namespace UI.Escritorio
 
         }
 
-
+        private void btnExportar_Click(object sender, EventArgs e)
+        {
+            ExportarAexcel2 exp = new ExportarAexcel2();
+            exp.exporta_a_excel(this.dataListado);
+        }
        
 
         #endregion
+
+       
 
 
     }

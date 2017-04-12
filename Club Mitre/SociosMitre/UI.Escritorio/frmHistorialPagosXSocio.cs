@@ -52,6 +52,8 @@ namespace UI.Escritorio
         {
             CuotasLogic cuo = new CuotasLogic();
             this.dataListado.DataSource = cuo.GetAll();
+            this.lbContador.Text ="Cantidad de registros: " + Convert.ToString(this.dataListado.RowCount);
+            this.lbSocio.Text = "";
 
         }
 
@@ -60,6 +62,7 @@ namespace UI.Escritorio
         {
             CuotasLogic cuo = new CuotasLogic();
             this.dataListado.DataSource = cuo.TraerPorSocio(nroSocio);
+            this.lbContador.Text = "Cantidad de registros: " + Convert.ToString(this.dataListado.RowCount);
 
         }
 
@@ -104,14 +107,7 @@ namespace UI.Escritorio
 
         private void frmHistorialPagosXSocio_Load(object sender, EventArgs e)
         {
-            Listar();
-        }
-
-
-
-        private void btnSalir_Click(object sender, EventArgs e)
-        {
-            this.Close();
+            this.Listar();
         }
 
 
@@ -126,11 +122,13 @@ namespace UI.Escritorio
                 if (id == 0)
                 {
                     dataListado.DataSource = cuo.TraerPorAño(cbListaBusqueda.SelectedItem.ToString());
+                    this.lbContador.Text = "Cantidad de registros: " + Convert.ToString(this.dataListado.RowCount);
                 }
                 else
                 {
 
                     dataListado.DataSource = cuo.TraerPorAñoParaSocio(cbListaBusqueda.SelectedItem.ToString(), id);
+                    this.lbContador.Text = "Cantidad de registros: " + Convert.ToString(this.dataListado.RowCount);
                 }
             }
 
@@ -140,11 +138,13 @@ namespace UI.Escritorio
                 {
                     
                     dataListado.DataSource = cuo.TraerPorMes(mes);
+                    this.lbContador.Text = "Cantidad de registros: " + Convert.ToString(this.dataListado.RowCount);
                 }
                 else
                 {
 
                     dataListado.DataSource = cuo.TraerPorMesParaSocio(mes, id);
+                    this.lbContador.Text = "Cantidad de registros: " + Convert.ToString(this.dataListado.RowCount);
                 }
 
             }
@@ -178,18 +178,6 @@ namespace UI.Escritorio
             else
             {
                 cbListaBusqueda.Items.AddRange(typeof(meses).GetEnumNames());
-                //cbListaBusqueda.Items.Add("Enero");
-                //cbListaBusqueda.Items.Add("Febrero");
-                //cbListaBusqueda.Items.Add("Marzo");
-                //cbListaBusqueda.Items.Add("Abril");
-                //cbListaBusqueda.Items.Add("Mayo");
-                //cbListaBusqueda.Items.Add("Junio");
-                //cbListaBusqueda.Items.Add("Julio");
-                //cbListaBusqueda.Items.Add("Agosto");
-                //cbListaBusqueda.Items.Add("Septiembre");
-                //cbListaBusqueda.Items.Add("Octubre");
-                //cbListaBusqueda.Items.Add("Noviembre");
-                //cbListaBusqueda.Items.Add("Diciembre");
 
             }
         }
@@ -202,19 +190,6 @@ namespace UI.Escritorio
 
 
 
-        #endregion
-
-       
-
-        
-
-
-
-        private void tlpHistorialxSocio_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
 
@@ -222,12 +197,13 @@ namespace UI.Escritorio
             int mes = ((Cuotas)this.dataListado.SelectedRows[0].DataBoundItem).NroMesCuota;
             int anio = ((Cuotas)this.dataListado.SelectedRows[0].DataBoundItem).AnioCuota;
             frmPagoCuotas frm = new frmPagoCuotas(nroSoc, mes, anio, ApplicationForm.ModoForm.Modificacion);
-            
+
             frm.ShowDialog();
             this.Listar();
-            
-            
+
+
         }
+
 
         private void tsbEliminar_Click(object sender, EventArgs e)
         {
@@ -240,11 +216,24 @@ namespace UI.Escritorio
             this.Listar();
         }
 
+
         private void btnExportar_Click(object sender, EventArgs e)
         {
             ExportarAexcel2 exportar = new ExportarAexcel2();
             exportar.exporta_a_excel(this.dataListado);
         }
+
+
+        #endregion
+
+
+       
+
+
+
+        
+
+       
 
         
 

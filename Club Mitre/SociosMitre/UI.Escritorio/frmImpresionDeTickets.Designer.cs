@@ -29,18 +29,18 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.btnImprimir = new System.Windows.Forms.Button();
             this.btnVistaPrevia = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.cbAnio = new System.Windows.Forms.ComboBox();
-            this.cbMes = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnImprimir = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
             this.cbCategorias = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cbMes = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cbAnio = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,7 +50,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65.82734F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.17266F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 148F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 96F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 97F));
             this.tableLayoutPanel1.Controls.Add(this.btnVistaPrevia, 1, 5);
             this.tableLayoutPanel1.Controls.Add(this.btnCancelar, 1, 7);
             this.tableLayoutPanel1.Controls.Add(this.btnSalir, 2, 7);
@@ -78,6 +78,36 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(523, 336);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
+            // btnVistaPrevia
+            // 
+            this.btnVistaPrevia.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnVistaPrevia.Location = new System.Drawing.Point(199, 205);
+            this.btnVistaPrevia.Name = "btnVistaPrevia";
+            this.btnVistaPrevia.Size = new System.Drawing.Size(75, 23);
+            this.btnVistaPrevia.TabIndex = 6;
+            this.btnVistaPrevia.Text = "Vista previa";
+            this.btnVistaPrevia.UseVisualStyleBackColor = true;
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnCancelar.Location = new System.Drawing.Point(199, 300);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.TabIndex = 7;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            // 
+            // btnSalir
+            // 
+            this.btnSalir.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnSalir.Location = new System.Drawing.Point(313, 300);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(75, 23);
+            this.btnSalir.TabIndex = 8;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.UseVisualStyleBackColor = true;
+            // 
             // label1
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
@@ -87,9 +117,83 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(3, 34);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(272, 22);
+            this.label1.Size = new System.Drawing.Size(271, 22);
             this.label1.TabIndex = 0;
             this.label1.Text = "Impresion de tickets";
+            // 
+            // btnImprimir
+            // 
+            this.btnImprimir.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnImprimir.Location = new System.Drawing.Point(313, 205);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(75, 23);
+            this.btnImprimir.TabIndex = 5;
+            this.btnImprimir.Text = "Imprimir";
+            this.btnImprimir.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(235, 174);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(39, 13);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Socios";
+            // 
+            // cbCategorias
+            // 
+            this.cbCategorias.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbCategorias.FormattingEnabled = true;
+            this.cbCategorias.Items.AddRange(new object[] {
+            "Todos",
+            "Menores",
+            "Mayores",
+            "Mutual",
+            "Club"});
+            this.cbCategorias.Location = new System.Drawing.Point(290, 170);
+            this.cbCategorias.Name = "cbCategorias";
+            this.cbCategorias.Size = new System.Drawing.Size(121, 21);
+            this.cbCategorias.TabIndex = 11;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(247, 140);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(27, 13);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Mes";
+            // 
+            // cbMes
+            // 
+            this.cbMes.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbMes.FormattingEnabled = true;
+            this.cbMes.Location = new System.Drawing.Point(290, 136);
+            this.cbMes.Name = "cbMes";
+            this.cbMes.Size = new System.Drawing.Size(121, 21);
+            this.cbMes.TabIndex = 10;
+            // 
+            // label4
+            // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(248, 104);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(26, 13);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Año";
+            // 
+            // cbAnio
+            // 
+            this.cbAnio.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbAnio.FormattingEnabled = true;
+            this.cbAnio.Location = new System.Drawing.Point(290, 100);
+            this.cbAnio.Name = "cbAnio";
+            this.cbAnio.Size = new System.Drawing.Size(121, 21);
+            this.cbAnio.TabIndex = 9;
+            this.cbAnio.SelectedValueChanged += new System.EventHandler(this.cbAnio_SelectedValueChanged);
             // 
             // label2
             // 
@@ -101,103 +205,6 @@
             this.label2.Size = new System.Drawing.Size(46, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "Para:";
-            // 
-            // label3
-            // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(248, 140);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(27, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Mes";
-            // 
-            // label4
-            // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(249, 104);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(26, 13);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Año";
-            // 
-            // label5
-            // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(236, 174);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(39, 13);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Socios";
-            // 
-            // btnImprimir
-            // 
-            this.btnImprimir.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnImprimir.Location = new System.Drawing.Point(314, 205);
-            this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(75, 23);
-            this.btnImprimir.TabIndex = 5;
-            this.btnImprimir.Text = "Imprimir";
-            this.btnImprimir.UseVisualStyleBackColor = true;
-            // 
-            // btnVistaPrevia
-            // 
-            this.btnVistaPrevia.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnVistaPrevia.Location = new System.Drawing.Point(200, 205);
-            this.btnVistaPrevia.Name = "btnVistaPrevia";
-            this.btnVistaPrevia.Size = new System.Drawing.Size(75, 23);
-            this.btnVistaPrevia.TabIndex = 6;
-            this.btnVistaPrevia.Text = "Vista previa";
-            this.btnVistaPrevia.UseVisualStyleBackColor = true;
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnCancelar.Location = new System.Drawing.Point(200, 300);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 7;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            // 
-            // btnSalir
-            // 
-            this.btnSalir.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnSalir.Location = new System.Drawing.Point(314, 300);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(75, 23);
-            this.btnSalir.TabIndex = 8;
-            this.btnSalir.Text = "Salir";
-            this.btnSalir.UseVisualStyleBackColor = true;
-            // 
-            // cbAnio
-            // 
-            this.cbAnio.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cbAnio.FormattingEnabled = true;
-            this.cbAnio.Location = new System.Drawing.Point(291, 100);
-            this.cbAnio.Name = "cbAnio";
-            this.cbAnio.Size = new System.Drawing.Size(121, 21);
-            this.cbAnio.TabIndex = 9;
-            // 
-            // cbMes
-            // 
-            this.cbMes.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cbMes.FormattingEnabled = true;
-            this.cbMes.Location = new System.Drawing.Point(291, 136);
-            this.cbMes.Name = "cbMes";
-            this.cbMes.Size = new System.Drawing.Size(121, 21);
-            this.cbMes.TabIndex = 10;
-            // 
-            // cbCategorias
-            // 
-            this.cbCategorias.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cbCategorias.FormattingEnabled = true;
-            this.cbCategorias.Location = new System.Drawing.Point(291, 170);
-            this.cbCategorias.Name = "cbCategorias";
-            this.cbCategorias.Size = new System.Drawing.Size(121, 21);
-            this.cbCategorias.TabIndex = 11;
             // 
             // frmImpresionDeTickets
             // 

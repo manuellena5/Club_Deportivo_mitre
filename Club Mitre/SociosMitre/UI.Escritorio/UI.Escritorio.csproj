@@ -57,7 +57,11 @@
     <Compile Include="ApplicationForm.Designer.cs">
       <DependentUpon>ApplicationForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ExportarAExcel.cs" />
+    <Compile Include="Club_MitreDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Club_MitreDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="ExportarAexcel2.cs" />
     <Compile Include="frmActualizacionPrecios.cs">
       <SubType>Form</SubType>
@@ -70,6 +74,12 @@
     </Compile>
     <Compile Include="frmAMBcategoria.Designer.cs">
       <DependentUpon>frmAMBcategoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBalance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBalance.Designer.cs">
+      <DependentUpon>frmBalance.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmCargarDatosDesdeExcel.cs">
       <SubType>Form</SubType>
@@ -136,6 +146,9 @@
     <EmbeddedResource Include="frmAMBcategoria.resx">
       <DependentUpon>frmAMBcategoria.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmBalance.resx">
+      <DependentUpon>frmBalance.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmCargarDatosDesdeExcel.resx">
       <DependentUpon>FrmCargarDatosDesdeExcel.cs</DependentUpon>
     </EmbeddedResource>
@@ -165,6 +178,17 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Club_MitreDataSet.xsc">
+      <DependentUpon>Club_MitreDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Club_MitreDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Club_MitreDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Club_MitreDataSet.xss">
+      <DependentUpon>Club_MitreDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

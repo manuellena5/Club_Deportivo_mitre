@@ -42,6 +42,7 @@
             this.FechaNac = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSalir = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.lbContador = new System.Windows.Forms.Label();
             this.tlpListaSocios.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataListado)).BeginInit();
             this.SuspendLayout();
@@ -49,15 +50,16 @@
             // tlpListaSocios
             // 
             this.tlpListaSocios.ColumnCount = 3;
-            this.tlpListaSocios.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 41.80791F));
-            this.tlpListaSocios.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 58.19209F));
-            this.tlpListaSocios.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 234F));
+            this.tlpListaSocios.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 46.50283F));
+            this.tlpListaSocios.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 53.49717F));
+            this.tlpListaSocios.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 235F));
             this.tlpListaSocios.Controls.Add(this.label1, 0, 1);
             this.tlpListaSocios.Controls.Add(this.txtBuscar, 1, 1);
             this.tlpListaSocios.Controls.Add(this.btnBuscar, 2, 1);
             this.tlpListaSocios.Controls.Add(this.dataListado, 0, 2);
             this.tlpListaSocios.Controls.Add(this.btnSalir, 2, 3);
             this.tlpListaSocios.Controls.Add(this.button1, 1, 3);
+            this.tlpListaSocios.Controls.Add(this.lbContador, 0, 3);
             this.tlpListaSocios.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpListaSocios.Location = new System.Drawing.Point(0, 0);
             this.tlpListaSocios.Name = "tlpListaSocios";
@@ -71,8 +73,9 @@
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 27);
+            this.label1.Location = new System.Drawing.Point(114, 36);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(129, 13);
             this.label1.TabIndex = 0;
@@ -80,14 +83,15 @@
             // 
             // txtBuscar
             // 
-            this.txtBuscar.Location = new System.Drawing.Point(225, 30);
+            this.txtBuscar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtBuscar.Location = new System.Drawing.Point(272, 33);
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(206, 20);
+            this.txtBuscar.Size = new System.Drawing.Size(230, 20);
             this.txtBuscar.TabIndex = 1;
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(533, 30);
+            this.btnBuscar.Location = new System.Drawing.Point(532, 30);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 23);
             this.btnBuscar.TabIndex = 2;
@@ -179,9 +183,10 @@
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(533, 466);
+            this.btnSalir.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnSalir.Location = new System.Drawing.Point(604, 470);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(75, 23);
+            this.btnSalir.Size = new System.Drawing.Size(85, 31);
             this.btnSalir.TabIndex = 4;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
@@ -189,13 +194,23 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(225, 466);
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button1.Location = new System.Drawing.Point(336, 470);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(102, 40);
+            this.button1.Size = new System.Drawing.Size(102, 31);
             this.button1.TabIndex = 5;
             this.button1.Text = "Exportar Listado";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // lbContador
+            // 
+            this.lbContador.AutoSize = true;
+            this.lbContador.Location = new System.Drawing.Point(3, 463);
+            this.lbContador.Name = "lbContador";
+            this.lbContador.Size = new System.Drawing.Size(50, 13);
+            this.lbContador.TabIndex = 6;
+            this.lbContador.Text = "Contador";
             // 
             // frmListaSocios
             // 
@@ -229,6 +244,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaNac;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label lbContador;
 
     }
 }

@@ -41,6 +41,7 @@ namespace UI.Escritorio
         {
             SociosLogic soc = new SociosLogic();
             this.dataListado.DataSource = soc.GetAll();
+            this.lbContador.Text = "Cantidad de registros: " + Convert.ToString(dataListado.RowCount);
 
         }
 
@@ -105,16 +106,16 @@ namespace UI.Escritorio
             this.Close();
         }
 
-
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ExportarAexcel2 exp1 = new ExportarAexcel2();
+            exp1.exporta_a_excel(this.dataListado);
+        }
+       
 
         #endregion
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            ExportarAExcel exp1 = new ExportarAExcel();
-            exp1.ExportarDataGridViewExcel(this.dataListado);
-        }
-       
+        
 
 
     }
