@@ -55,5 +55,16 @@ namespace UI.Escritorio
             FrmCargarDatosDesdeExcel frm = new FrmCargarDatosDesdeExcel();
             frm.ShowDialog();
         }
+
+        private void resumenDePagosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void balancesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmBalance frm = new frmBalance();
+            frm.ShowDialog();
+        }
     }
 }

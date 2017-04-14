@@ -14,7 +14,7 @@ namespace UI.Escritorio
 {
     public partial class frmBalance : Form
     {
-
+        
 
         #region VARIABLES
 
@@ -27,90 +27,101 @@ namespace UI.Escritorio
         {
             InitializeComponent();
             this.dataListado.AutoGenerateColumns = false;
+            this.cargarCombos();
         }
 
         #endregion
 
 
-        //#region METODOS
+        #region METODOS
 
-        //public void Listar()
-        //{
-        //    CuotasLogic cuo = new CuotasLogic();
-        //    this.dataListado.DataSource = soc.GetAll();
-        //    this.lbContador.Text = "Cantidad de registros: " + Convert.ToString(dataListado.RowCount);
+          public void Listar()
+          {
+              CuotasLogic cuo = new CuotasLogic();
+              this.dataListado.DataSource = cuo.TraerBalanceClubMutualAñoActual();
+              this.Limpiar();
+              this.LabelVisibles(false);
+              
 
-        //}
+          }
 
+            public void LabelVisibles(bool val)
+          {
+              this.lbCategoria.Visible = val;
+              this.lbAnio.Visible = val;
+              this.lbTipo.Visible = val;
 
+          }
+            public void cargarCombos()
+            {
+                 int año = 2015;
+                for (int i = 0; i < 100; i++)
+                {
+                    cbAnio.Items.Add(año);
+                    año++;
+                }
 
-        //public void Buscar()
-        //{
-        //    SociosLogic soc = new SociosLogic();
-        //    if (txtBuscar.Text == string.Empty)
-        //    {
-        //        MessageBox.Show("Ingrese un socio a buscar");
+                CategoriaLogic cat = new CategoriaLogic();
+                cbCategoria.DataSource = cat.TraerCategorias();
+                this.Limpiar();
+            }
 
-        //    }
-        //    else
-        //    {
-        //        this.dataListado.DataSource = soc.TraerPorApellido(this.txtBuscar.Text);
+            public void Limpiar()
+            {
+                cbAnio.SelectedItem = null;
+                cbCategoria.SelectedItem = null;
+                cbTipo.SelectedItem = null;
 
-        //        this.btnBuscar.Text = "Listar";
-        //    }
-        //}
+            }
 
-        //#endregion
-
-
-        //#region EVENTOS
-
-
-        //private void dgvListaSocios_DoubleClick(object sender, EventArgs e)
-        //{
-        //    par1 = Convert.ToInt32(this.dataListado.CurrentRow.Cells["NroSocio"].Value);
-        //    par2 = Convert.ToString(this.dataListado.CurrentRow.Cells["Nombre"].Value);
-        //    par3 = Convert.ToString(this.dataListado.CurrentRow.Cells["Apellido"].Value);
-        //    par4 = Convert.ToString(this.dataListado.CurrentRow.Cells["Dni"].Value);
-        //    par5 = Convert.ToString(this.dataListado.CurrentRow.Cells["FechaNac"].Value);
-        //    par6 = Convert.ToString(this.dataListado.CurrentRow.Cells["Tipo"].Value);
-        //    par7 = Convert.ToString(this.dataListado.CurrentRow.Cells["Categoria"].Value);
-        //    this.Hide();
-        //}
+        #endregion
 
 
-        //private void btnBuscar_Click(object sender, EventArgs e)
-        //{
+        #region EVENTOS
 
-        //    if (this.btnBuscar.Text == "Listar")
-        //    {
-        //        this.Listar();
-        //        this.btnBuscar.Text = "Buscar";
-        //    }
-        //    else
-        //    {
-        //        this.Buscar();
-        //    }
-        //}
+          private void frmBalance_Load(object sender, EventArgs e)
+          {
 
-        //private void frmListaSocios_Load(object sender, EventArgs e)
-        //{
-        //    Listar();
-        //}
+              Listar();
+          }
 
-        //private void btnSalir_Click(object sender, EventArgs e)
-        //{
-        //    this.Close();
-        //}
+          private void btnSalir_Click(object sender, EventArgs e)
+          {
+              this.Close();
+          }
 
-        //private void button1_Click(object sender, EventArgs e)
-        //{
-        //    ExportarAexcel2 exp1 = new ExportarAexcel2();
-        //    exp1.exporta_a_excel(this.dataListado);
-        //}
+          private void button1_Click(object sender, EventArgs e)
+          {
+              ExportarAexcel2 exp1 = new ExportarAexcel2();
+              exp1.exporta_a_excel(this.dataListado);
+          }
        
+            
 
-        //#endregion
+        #endregion
+
+          private void btnTraerBalance_Click(object sender, EventArgs e)
+          {
+              CuotasLogic cl = new CuotasLogic();
+             this.dataListado.DataSource = cl.TraerBalanceClubMutual(Convert.ToInt32(cbAnio.SelectedItem),Convert.ToString(cbTipo.SelectedItem),Convert.ToString(cbCategoria.SelectedItem));
+
+
+             this.LabelVisibles(true);
+             lbAnio.Text = Convert.ToString(cbAnio.SelectedItem);
+             lbTipo.Text = Convert.ToString(cbTipo.SelectedItem);
+             lbCategoria.Text = Convert.ToString(cbCategoria.SelectedItem);
+          }
+
+          private void btnExportar_Click(object sender, EventArgs e)
+          {
+              ExportarAexcel2 exp = new ExportarAexcel2();
+              exp.exporta_a_excel(this.dataListado);
+          }
+
+          private void btnLimpiar_Click(object sender, EventArgs e)
+          {
+              this.Limpiar();
+          }
 
     }
 }

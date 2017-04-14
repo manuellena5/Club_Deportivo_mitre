@@ -30,7 +30,7 @@ namespace UI.Escritorio
             {
 
                 ColumnIndex++;
-                aplicacion.Cells[1, ColumnIndex] = col.Name;
+                aplicacion.Cells[1, ColumnIndex] = col.HeaderText;
 
             }
             int rowIndex = 0;

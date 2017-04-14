@@ -51,6 +51,7 @@
             this.aBMCCategoriasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.importarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.importarDesdeExcelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.balancesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -141,7 +142,8 @@
             // 
             this.ticketsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.impresionDeTicketsToolStripMenuItem,
-            this.resumenDePagosToolStripMenuItem});
+            this.resumenDePagosToolStripMenuItem,
+            this.balancesToolStripMenuItem});
             this.ticketsToolStripMenuItem.Name = "ticketsToolStripMenuItem";
             this.ticketsToolStripMenuItem.Size = new System.Drawing.Size(81, 20);
             this.ticketsToolStripMenuItem.Text = "Facturacion";
@@ -157,6 +159,7 @@
             this.resumenDePagosToolStripMenuItem.Name = "resumenDePagosToolStripMenuItem";
             this.resumenDePagosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.resumenDePagosToolStripMenuItem.Text = "Resumen de pagos";
+            this.resumenDePagosToolStripMenuItem.Click += new System.EventHandler(this.resumenDePagosToolStripMenuItem_Click);
             // 
             // ayudaToolStripMenuItem1
             // 
@@ -229,6 +232,13 @@
             this.importarDesdeExcelToolStripMenuItem.Text = "Importar desde excel";
             this.importarDesdeExcelToolStripMenuItem.Click += new System.EventHandler(this.importarDesdeExcelToolStripMenuItem_Click);
             // 
+            // balancesToolStripMenuItem
+            // 
+            this.balancesToolStripMenuItem.Name = "balancesToolStripMenuItem";
+            this.balancesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.balancesToolStripMenuItem.Text = "Balances";
+            this.balancesToolStripMenuItem.Click += new System.EventHandler(this.balancesToolStripMenuItem_Click);
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -270,5 +280,6 @@
         private System.Windows.Forms.ToolStripMenuItem aBMCCategoriasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem importarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem importarDesdeExcelToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem balancesToolStripMenuItem;
     }
 }

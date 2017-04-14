@@ -61,6 +61,18 @@ namespace Negocio
         {
             return CuotasD.TraerPorAñoParaSocio(txtBuscado,id);
         }
+
+        public List<Balance> TraerBalanceClubMutual(int anio, string tipo, string categoria)
+        {
+            return CuotasD.TraerBalanceClubMutual(anio,tipo,categoria);
+        }
+
+        public List<Balance> TraerBalanceClubMutualAñoActual()
+        {
+            return CuotasD.TraerBalanceClubMutualAñoActual();
+        }
+
+
         public void Delete(Cuotas pago)
         {
             CuotasD.Save(pago);
