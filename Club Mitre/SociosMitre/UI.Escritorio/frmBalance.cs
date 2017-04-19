@@ -114,8 +114,17 @@ namespace UI.Escritorio
 
           private void btnExportar_Click(object sender, EventArgs e)
           {
-              ExportarAexcel2 exp = new ExportarAexcel2();
-              exp.exporta_a_excel(this.dataListado);
+
+
+              formReportes fr = new formReportes();
+              
+              fr.anior = Convert.ToInt32(this.cbAnio.SelectedItem);
+              fr.tipor = Convert.ToString(this.cbTipo.SelectedItem);
+              fr.categoriar = Convert.ToString(this.cbCategoria.SelectedItem);
+              fr.ShowDialog();
+
+              //ExportarAexcel2 exp = new ExportarAexcel2();
+              //exp.exporta_a_excel(this.dataListado);
           }
 
           private void btnLimpiar_Click(object sender, EventArgs e)

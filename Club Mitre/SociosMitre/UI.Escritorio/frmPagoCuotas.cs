@@ -84,7 +84,7 @@ namespace UI.Escritorio
         }
 
 
-        new private void Notificar(string mensaje)
+        private void Notificar(string mensaje)
         {
           MessageBox.Show(mensaje, "Registro de cuotas", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -97,7 +97,7 @@ namespace UI.Escritorio
         }
 
 
-        private void Limpiar()
+        private void LimpiarTodosLosCampos()
         {
             this.txtNroSocio.Text = string.Empty;
             this.txtNombre.Text = string.Empty;
@@ -106,6 +106,13 @@ namespace UI.Escritorio
             this.txtImporte.Text = string.Empty;
             this.txtCategoria.Text = string.Empty;
             this.txtTipo.Text = string.Empty;
+            lbMeses.ClearSelected();
+        }
+
+        private void LimpiarParaContinuar()
+        {
+            this.cbAnio.Text = string.Empty;
+            this.txtImporte.Text = string.Empty;
             lbMeses.ClearSelected();
         }
 
@@ -241,9 +248,8 @@ namespace UI.Escritorio
                 cuo.Nombre = this.txtNombre.Text;
                 cuo.Apellido = this.txtApellido.Text;
 
-                mensaje = "Se va a registrar el pago de la cuota del socio: " + "\n" + "Nro Socio: " + cuo.NroSocio + "\n" + "Nombre: " + cuo.Nombre + " " + cuo.Apellido + "\n";
+                mensaje = "Se va a registrar el pago de la cuota del socio: " + "\n" + "Nro Socio: " + cuo.NroSocio + "\n" + "Nombre: " + cuo.Nombre + " " + cuo.Apellido + "\n" + "Mes: " + Meses.AñoCompleto.ToString() + "\n" + "Año: " + cuo.AnioCuota + "\n" + "Importe: " + cuo.Importe;
 
-                mensaje = mensaje + "Mes: " + Meses.AñoCompleto.ToString() + "\n" + "Año: " + CuotaActual.AnioCuota + "\n" + "Importe: " + CuotaActual.Importe;
 
                 DialogResult resultado = NotificarYesNo(mensaje, "Pago de cuota", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
 
@@ -441,7 +447,18 @@ namespace UI.Escritorio
             if (Validar())
             {
                 GuardarCambios();
-                Close();
+
+                DialogResult resul = MessageBox.Show("Registro con exito" + "\n" + "¿Desea continuar?","Registro de cuotas", MessageBoxButtons.YesNo, MessageBoxIcon.None);
+                if (resul == DialogResult.Yes)
+                {
+                    this.LimpiarParaContinuar();
+                    
+                }
+                else
+                {
+                    Close();
+                }
+                
             }
         } 
 
@@ -454,7 +471,7 @@ namespace UI.Escritorio
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            this.Limpiar();
+            this.LimpiarTodosLosCampos();
         }
 
 

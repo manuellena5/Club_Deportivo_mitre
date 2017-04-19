@@ -16,14 +16,14 @@ namespace UI.Escritorio {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class ReporteTicket : ReportClass {
+    public class ReporteBalance : ReportClass {
         
-        public ReporteTicket() {
+        public ReporteBalance() {
         }
         
         public override string ResourceName {
             get {
-                return "ReporteTicket.rpt";
+                return "ReporteBalance.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace UI.Escritorio {
         
         public override string FullResourceName {
             get {
-                return "UI.Escritorio.ReporteTicket.rpt";
+                return "UI.Escritorio.ReporteBalance.rpt";
             }
             set {
                 // Do nothing
@@ -90,7 +90,7 @@ namespace UI.Escritorio {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_nro_soc {
+        public CrystalDecisions.Shared.IParameterField Parameter_anio {
             get {
                 return this.DataDefinition.ParameterFields[0];
             }
@@ -98,7 +98,7 @@ namespace UI.Escritorio {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_mes {
+        public CrystalDecisions.Shared.IParameterField Parameter_tipo {
             get {
                 return this.DataDefinition.ParameterFields[1];
             }
@@ -106,7 +106,7 @@ namespace UI.Escritorio {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_anio {
+        public CrystalDecisions.Shared.IParameterField Parameter_categoria {
             get {
                 return this.DataDefinition.ParameterFields[2];
             }
@@ -114,9 +114,9 @@ namespace UI.Escritorio {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedReporteTicket : Component, ICachedReport {
+    public class CachedReporteBalance : Component, ICachedReport {
         
-        public CachedReporteTicket() {
+        public CachedReporteBalance() {
         }
         
         [Browsable(false)]
@@ -153,7 +153,7 @@ namespace UI.Escritorio {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            ReporteTicket rpt = new ReporteTicket();
+            ReporteBalance rpt = new ReporteBalance();
             rpt.Site = this.Site;
             return rpt;
         }

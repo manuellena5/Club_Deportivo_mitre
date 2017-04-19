@@ -190,7 +190,7 @@ namespace UI.Escritorio
 
 
 
-        private void toolStripButton1_Click(object sender, EventArgs e)
+        private void tsbEditar_Click(object sender, EventArgs e)
         {
 
             int nroSoc = ((Cuotas)this.dataListado.SelectedRows[0].DataBoundItem).NroSocio;
