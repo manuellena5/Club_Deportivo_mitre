@@ -66,5 +66,11 @@ namespace UI.Escritorio
             frmBalance frm = new frmBalance();
             frm.ShowDialog();
         }
+
+        private void impresionDeTicketsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmImpresionDeTickets frm = new frmImpresionDeTickets();
+            frm.ShowDialog();
+        }
     }
 }

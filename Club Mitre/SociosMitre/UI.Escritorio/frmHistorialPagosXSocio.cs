@@ -93,10 +93,10 @@ namespace UI.Escritorio
             
             frmListaSocios frm = new frmListaSocios();
             frm.ShowDialog();
-            this.LlenarGrid(frm.par1);
-            id = frm.par1;
-            nom = frm.par2;
-            ape = frm.par3;
+            this.LlenarGrid(frm.nrosoc);
+            id = frm.nrosoc;
+            nom = frm.nomb;
+            ape = frm.ape;
             this.lbSocio.Text = nom + " " + ape;
             
 

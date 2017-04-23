@@ -1,6 +1,6 @@
 ﻿namespace UI.Escritorio
 {
-    partial class formReportes
+    partial class frmVistaPrevRepBalance
     {
         /// <summary>
         /// Required designer variable.

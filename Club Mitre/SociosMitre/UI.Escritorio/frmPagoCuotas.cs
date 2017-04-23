@@ -438,7 +438,7 @@ namespace UI.Escritorio
         {
             frmListaSocios form = new frmListaSocios();
             form.ShowDialog();
-            this.Socios(form.par1, form.par2, form.par3,form.par7,form.par6);
+            this.Socios(form.nrosoc, form.nomb, form.ape,form.cat,form.tip);
         }
 
 

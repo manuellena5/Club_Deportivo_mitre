@@ -16,8 +16,16 @@ namespace UI.Escritorio
     {
         #region VARIABLES
 
-        public string par2, par3, par4, par5, par6, par7;
-        public int par1;
+        public string nomb, ape, doc, fnac, tip, cat;
+        public int nrosoc;
+
+        //par1 = NroSocio
+        //    par2 = Nombre
+        //        par3=Apellido
+        //            par4 = Dni
+        //                par5 = FechaNac
+        //                    par6 = Tipo
+        //                        par7 = Categoria
 
 
         #endregion
@@ -71,14 +79,16 @@ namespace UI.Escritorio
 
         private void dgvListaSocios_DoubleClick(object sender, EventArgs e)
         {
-            par1 = Convert.ToInt32(this.dataListado.CurrentRow.Cells["NroSocio"].Value);
-            par2 = Convert.ToString(this.dataListado.CurrentRow.Cells["Nombre"].Value);
-            par3 = Convert.ToString(this.dataListado.CurrentRow.Cells["Apellido"].Value);
-            par4 = Convert.ToString(this.dataListado.CurrentRow.Cells["Dni"].Value);
-            par5 = Convert.ToString(this.dataListado.CurrentRow.Cells["FechaNac"].Value);
-            par6 = Convert.ToString(this.dataListado.CurrentRow.Cells["Tipo"].Value);
-            par7 = Convert.ToString(this.dataListado.CurrentRow.Cells["Categoria"].Value);
+            nrosoc = Convert.ToInt32(this.dataListado.CurrentRow.Cells["NroSocio"].Value);
+            nomb = Convert.ToString(this.dataListado.CurrentRow.Cells["Nombre"].Value);
+            ape = Convert.ToString(this.dataListado.CurrentRow.Cells["Apellido"].Value);
+            doc = Convert.ToString(this.dataListado.CurrentRow.Cells["Dni"].Value);
+            fnac = Convert.ToString(this.dataListado.CurrentRow.Cells["FechaNac"].Value);
+            tip = Convert.ToString(this.dataListado.CurrentRow.Cells["Tipo"].Value);
+            cat = Convert.ToString(this.dataListado.CurrentRow.Cells["Categoria"].Value);
             this.Hide();
+
+
         }
 
 

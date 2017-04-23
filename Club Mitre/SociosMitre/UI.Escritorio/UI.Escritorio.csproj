@@ -65,11 +65,11 @@
       <DependentUpon>ApplicationForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ExportarAexcel2.cs" />
-    <Compile Include="formReportes.cs">
+    <Compile Include="frmVistaPrevRepBalance.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="formReportes.Designer.cs">
-      <DependentUpon>formReportes.cs</DependentUpon>
+    <Compile Include="frmVistaPrevRepBalance.Designer.cs">
+      <DependentUpon>frmVistaPrevRepBalance.cs</DependentUpon>
     </Compile>
     <Compile Include="frmActualizacionPrecios.cs">
       <SubType>Form</SubType>
@@ -125,6 +125,12 @@
     <Compile Include="frmTicket.Designer.cs">
       <DependentUpon>frmTicket.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmVistaPrevRepTickets.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVistaPrevRepTickets.Designer.cs">
+      <DependentUpon>frmVistaPrevRepTickets.cs</DependentUpon>
+    </Compile>
     <Compile Include="ImportarExcel.cs" />
     <Compile Include="Principal.cs">
       <SubType>Form</SubType>
@@ -160,8 +166,8 @@
     <EmbeddedResource Include="ABMSocios.resx">
       <DependentUpon>ABMSocios.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="formReportes.resx">
-      <DependentUpon>formReportes.cs</DependentUpon>
+    <EmbeddedResource Include="frmVistaPrevRepBalance.resx">
+      <DependentUpon>frmVistaPrevRepBalance.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmActualizacionPrecios.resx">
       <DependentUpon>frmActualizacionPrecios.cs</DependentUpon>
@@ -189,6 +195,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmTicket.resx">
       <DependentUpon>frmTicket.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVistaPrevRepTickets.resx">
+      <DependentUpon>frmVistaPrevRepTickets.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>

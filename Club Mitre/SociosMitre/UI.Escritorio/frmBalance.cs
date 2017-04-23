@@ -116,7 +116,7 @@ namespace UI.Escritorio
           {
 
 
-              formReportes fr = new formReportes();
+              frmVistaPrevRepBalance fr = new frmVistaPrevRepBalance();
               
               fr.anior = Convert.ToInt32(this.cbAnio.SelectedItem);
               fr.tipor = Convert.ToString(this.cbTipo.SelectedItem);

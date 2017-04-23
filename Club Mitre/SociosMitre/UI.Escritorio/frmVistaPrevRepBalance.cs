@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace UI.Escritorio
 {
-    public partial class formReportes : Form
+    public partial class frmVistaPrevRepBalance : Form
     {
-        public formReportes()
+        public frmVistaPrevRepBalance()
         {
             InitializeComponent();
         }
@@ -34,22 +34,8 @@ namespace UI.Escritorio
             rep.SetParameterValue("@anio", anior);
             rep.SetParameterValue("@categoria", categoriar);
             rep.SetParameterValue("@tipo", tipor);
-            //if (tipor == null)
-            //{
-            //    rep.SetParameterValue("@tipo", null);
-            //}
-            //else
-            //{
-            //    rep.SetParameterValue("@tipo", tipor);
-            //}
-            //if (categoriar == null)
-            //{
-            //    rep.SetParameterValue("categoria",null);
-            //}
-            //else
-            //{
-            //    rep.SetParameterValue("@categoria", categoriar);
-            //}
+           
+
             crystalReportViewer1.ReportSource = rep;
         }
 
