@@ -83,39 +83,9 @@ namespace UI.Escritorio.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Escudo1 {
+        internal static System.Drawing.Bitmap FlechaRetroceso {
             get {
-                object obj = ResourceManager.GetObject("Escudo1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Escudo2 {
-            get {
-                object obj = ResourceManager.GetObject("Escudo2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Escudo3 {
-            get {
-                object obj = ResourceManager.GetObject("Escudo3", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Escudo4 {
-            get {
-                object obj = ResourceManager.GetObject("Escudo4", resourceCulture);
+                object obj = ResourceManager.GetObject("FlechaRetroceso", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -126,6 +96,26 @@ namespace UI.Escritorio.Properties {
         internal static System.Drawing.Bitmap icono_Eliminar {
             get {
                 object obj = ResourceManager.GetObject("icono-Eliminar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap impresora {
+            get {
+                object obj = ResourceManager.GetObject("impresora", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap logo_Excel {
+            get {
+                object obj = ResourceManager.GetObject("logo_Excel", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

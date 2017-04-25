@@ -64,7 +64,42 @@
     <Compile Include="ApplicationForm.Designer.cs">
       <DependentUpon>ApplicationForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmVistaPrevHistorialPagos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVistaPrevHistorialPagos.Designer.cs">
+      <DependentUpon>frmVistaPrevHistorialPagos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmVistaPrevListadoEstadoActualSociosActivos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVistaPrevListadoEstadoActualSociosActivos.Designer.cs">
+      <DependentUpon>frmVistaPrevListadoEstadoActualSociosActivos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmVistaPrevListadoSociosActivos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVistaPrevListadoSociosActivos.Designer.cs">
+      <DependentUpon>frmVistaPrevListadoSociosActivos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ReporteCategorias.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteCategorias.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ExportarAexcel2.cs" />
+    <Compile Include="frmVistaPrevCategorias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVistaPrevCategorias.Designer.cs">
+      <DependentUpon>frmVistaPrevCategorias.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmVistaPrevRepBalance.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,12 +154,6 @@
     <Compile Include="frmListaSocios.Designer.cs">
       <DependentUpon>frmListaSocios.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmTicket.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmTicket.Designer.cs">
-      <DependentUpon>frmTicket.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmVistaPrevRepTickets.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,15 +167,28 @@
     <Compile Include="Principal.Designer.cs">
       <DependentUpon>Principal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Include="ReporteBalance.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ReporteBalance.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReporteEstadoActualSocios.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteEstadoActualSocios.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReporteHistorialPagos.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteHistorialPagos.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReporteListaSociosActivos.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteListaSociosActivos.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="ReporteTicket.cs">
@@ -165,6 +207,22 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="ABMSocios.resx">
       <DependentUpon>ABMSocios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVistaPrevHistorialPagos.resx">
+      <DependentUpon>frmVistaPrevHistorialPagos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVistaPrevListadoEstadoActualSociosActivos.resx">
+      <DependentUpon>frmVistaPrevListadoEstadoActualSociosActivos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVistaPrevListadoSociosActivos.resx">
+      <DependentUpon>frmVistaPrevListadoSociosActivos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReporteCategorias.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReporteCategorias.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVistaPrevCategorias.resx">
+      <DependentUpon>frmVistaPrevCategorias.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmVistaPrevRepBalance.resx">
       <DependentUpon>frmVistaPrevRepBalance.cs</DependentUpon>
@@ -193,9 +251,6 @@
     <EmbeddedResource Include="frmListaSocios.resx">
       <DependentUpon>frmListaSocios.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmTicket.resx">
-      <DependentUpon>frmTicket.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmVistaPrevRepTickets.resx">
       <DependentUpon>frmVistaPrevRepTickets.cs</DependentUpon>
     </EmbeddedResource>
@@ -205,6 +260,18 @@
     <EmbeddedResource Include="ReporteBalance.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ReporteBalance.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReporteEstadoActualSocios.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReporteEstadoActualSocios.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReporteHistorialPagos.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReporteHistorialPagos.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReporteListaSociosActivos.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReporteListaSociosActivos.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ReporteTicket.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -251,9 +318,6 @@
     <None Include="Resources\icono-Eliminar.jpeg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Escudo2.png" />
-  </ItemGroup>
-  <ItemGroup>
     <COMReference Include="Microsoft.Office.Core">
       <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
       <VersionMajor>2</VersionMajor>
@@ -295,10 +359,16 @@
     <None Include="Resources\Escudo.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Escudo1.png" />
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+    <None Include="Resources\impresora.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FlechaRetroceso.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo_Excel.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

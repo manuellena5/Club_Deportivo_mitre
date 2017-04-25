@@ -71,6 +71,7 @@ namespace UI.Escritorio
                 cbAnio.SelectedItem = null;
                 cbCategoria.SelectedItem = null;
                 cbTipo.SelectedItem = null;
+                LabelVisibles(false);
 
             }
 

@@ -118,12 +118,28 @@ namespace UI.Escritorio
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ExportarAexcel2 exp1 = new ExportarAexcel2();
-            exp1.exporta_a_excel(this.dataListado);
+            
         }
        
 
         #endregion
+
+        private void tsbExportarAexcel_Click(object sender, EventArgs e)
+        {
+            ExportarAexcel2 exp1 = new ExportarAexcel2();
+            exp1.exporta_a_excel(this.dataListado);
+        }
+
+        private void tsbImprimir_Click(object sender, EventArgs e)
+        {
+            frmVistaPrevListadoSociosActivos frm = new frmVistaPrevListadoSociosActivos();
+            frm.ShowDialog();
+        }
+
+        private void tsbAtras_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
 
         
 

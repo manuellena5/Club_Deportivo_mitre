@@ -10,13 +10,17 @@ using System.Windows.Forms;
 
 namespace UI.Escritorio
 {
-    public partial class frmTicket : Form
+    public partial class frmVistaPrevCategorias : Form
     {
-        public frmTicket()
+        public frmVistaPrevCategorias()
         {
             InitializeComponent();
         }
 
-
+        private void frmVistaPrevCategorias_Load(object sender, EventArgs e)
+        {
+            ReporteCategorias rep = new ReporteCategorias();
+            crystalReportViewer1.ReportSource = rep;
+        }
     }
 }

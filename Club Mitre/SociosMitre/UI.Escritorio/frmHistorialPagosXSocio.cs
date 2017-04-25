@@ -73,21 +73,6 @@ namespace UI.Escritorio
         #region EVENTOS
 
 
-        private void btnBuscar_Click(object sender, EventArgs e)
-        {
-
-            if (this.btnBuscar.Text == "Listar")
-            {
-                this.Listar();
-                this.btnBuscar.Text = "Buscar";
-            }
-            else
-            {
-                //this.Buscar();
-            }
-        }
-
-
         private void btnBuscar_Click_1(object sender, EventArgs e)
         {
             
@@ -99,7 +84,6 @@ namespace UI.Escritorio
             ape = frm.ape;
             this.lbSocio.Text = nom + " " + ape;
             
-
             
         }
 
@@ -115,6 +99,10 @@ namespace UI.Escritorio
 
         private void cbListaBusqueda_SelectedValueChanged(object sender, EventArgs e)
         {
+            if (Convert.ToInt32(cbListaBusqueda.SelectedIndex) > -1)
+            {
+                
+            
             CuotasLogic cuo = new CuotasLogic();
             int mes = Convert.ToInt32(cbListaBusqueda.SelectedIndex) + 1; ;
             if (cbFiltro.SelectedItem.ToString() == "Año")
@@ -150,13 +138,15 @@ namespace UI.Escritorio
             }
         }
 
-
+        }
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
             this.Listar();
             id = 0;
             this.lbSocio.Text = "";
+            this.cbListaBusqueda.SelectedIndex = -1;
+            this.cbFiltro.SelectedIndex = -1;
 
         }
 
@@ -164,6 +154,10 @@ namespace UI.Escritorio
 
         private void cbFiltro_SelectedValueChanged(object sender, EventArgs e)
         {
+            if (Convert.ToInt32(cbFiltro.SelectedIndex) > -1 )
+            {
+                
+            
             cbListaBusqueda.Items.Clear();
             if (cbFiltro.SelectedItem.ToString() == "Año")
             {
@@ -179,6 +173,7 @@ namespace UI.Escritorio
             {
                 cbListaBusqueda.Items.AddRange(typeof(meses).GetEnumNames());
 
+            }
             }
         }
 
@@ -217,14 +212,51 @@ namespace UI.Escritorio
         }
 
 
-        private void btnExportar_Click(object sender, EventArgs e)
+        
+
+        private void tsbImprimir_Click(object sender, EventArgs e)
+        {
+            frmVistaPrevHistorialPagos frm = new frmVistaPrevHistorialPagos();
+
+            if (cbFiltro.SelectedItem.ToString() == "Año")
+            {
+                frm.anior = Convert.ToInt32(cbListaBusqueda.SelectedItem);
+                frm.mesr = 0;
+            }
+            else
+            {
+                
+                frm.mesr = Convert.ToInt32(cbListaBusqueda.SelectedIndex) + 1;
+                frm.anior = 0;
+            }
+
+            frm.nro_socior = this.id;
+            frm.ShowDialog();
+        }
+
+        private void tsbExportarExcel_Click(object sender, EventArgs e)
         {
             ExportarAexcel2 exportar = new ExportarAexcel2();
             exportar.exporta_a_excel(this.dataListado);
         }
 
+        private void tsbRegresar_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
 
         #endregion
+
+
+
+
+
+
+
+        private void btnExportar_Click(object sender, EventArgs e)
+        {
+
+        }
 
 
        

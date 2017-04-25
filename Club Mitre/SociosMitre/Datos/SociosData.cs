@@ -74,7 +74,7 @@ namespace Datos
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdSocios = new SqlCommand("select * from [dbo].[vwCuotasMaxPorCliente]", SqlConn);
+                SqlCommand cmdSocios = new SqlCommand("select * from [dbo].[vwListadoEstadoActualSocios]", SqlConn);
                 SqlDataReader drSocios = cmdSocios.ExecuteReader();
                 while (drSocios.Read())
                 {
@@ -193,7 +193,7 @@ namespace Datos
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdsocios = new SqlCommand("select * from [dbo].[vwCuotasMaxPorCliente] where apellidos like @textobuscar + '%'", SqlConn);
+                SqlCommand cmdsocios = new SqlCommand("select * from [dbo].[vwListadoEstadoActualSocios] where apellidos like @textobuscar + '%'", SqlConn);
                 cmdsocios.Parameters.Add("@textobuscar", SqlDbType.VarChar, 50).Value = Txtbuscado;
 
                 SqlDataReader drSocios = cmdsocios.ExecuteReader();

@@ -104,6 +104,23 @@ namespace UI.Escritorio
 
         #endregion
 
+        private void tsbImprimir_Click(object sender, EventArgs e)
+        {
+            frmVistaPrevCategorias frm = new frmVistaPrevCategorias();
+            frm.ShowDialog();
+        }
+
+        private void tsbExportarExcel_Click(object sender, EventArgs e)
+        {
+            ExportarAexcel2 exp = new ExportarAexcel2();
+            exp.exporta_a_excel(this.dataListado);
+        }
+
+        private void tsbAtras_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+
        
 
 

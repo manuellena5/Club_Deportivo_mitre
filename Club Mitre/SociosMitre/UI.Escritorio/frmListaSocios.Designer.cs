@@ -41,10 +41,14 @@
             this.Dni = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaNac = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.lbContador = new System.Windows.Forms.Label();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.tsbAtras = new System.Windows.Forms.ToolStripButton();
+            this.tsbImprimir = new System.Windows.Forms.ToolStripButton();
+            this.tsbExportarAexcel = new System.Windows.Forms.ToolStripButton();
             this.tlpListaSocios.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataListado)).BeginInit();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tlpListaSocios
@@ -52,14 +56,14 @@
             this.tlpListaSocios.ColumnCount = 3;
             this.tlpListaSocios.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 46.50283F));
             this.tlpListaSocios.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 53.49717F));
-            this.tlpListaSocios.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 235F));
+            this.tlpListaSocios.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 239F));
             this.tlpListaSocios.Controls.Add(this.label1, 0, 1);
             this.tlpListaSocios.Controls.Add(this.txtBuscar, 1, 1);
             this.tlpListaSocios.Controls.Add(this.btnBuscar, 2, 1);
             this.tlpListaSocios.Controls.Add(this.dataListado, 0, 2);
             this.tlpListaSocios.Controls.Add(this.btnSalir, 2, 3);
-            this.tlpListaSocios.Controls.Add(this.button1, 1, 3);
             this.tlpListaSocios.Controls.Add(this.lbContador, 0, 3);
+            this.tlpListaSocios.Controls.Add(this.toolStrip1, 0, 0);
             this.tlpListaSocios.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpListaSocios.Location = new System.Drawing.Point(0, 0);
             this.tlpListaSocios.Name = "tlpListaSocios";
@@ -75,7 +79,7 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(114, 36);
+            this.label1.Location = new System.Drawing.Point(112, 36);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(129, 13);
             this.label1.TabIndex = 0;
@@ -84,14 +88,14 @@
             // txtBuscar
             // 
             this.txtBuscar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtBuscar.Location = new System.Drawing.Point(272, 33);
+            this.txtBuscar.Location = new System.Drawing.Point(269, 33);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(230, 20);
             this.txtBuscar.TabIndex = 1;
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(532, 30);
+            this.btnBuscar.Location = new System.Drawing.Point(528, 30);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 23);
             this.btnBuscar.TabIndex = 2;
@@ -184,24 +188,13 @@
             // btnSalir
             // 
             this.btnSalir.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnSalir.Location = new System.Drawing.Point(604, 470);
+            this.btnSalir.Location = new System.Drawing.Point(602, 470);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(85, 31);
             this.btnSalir.TabIndex = 4;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
-            // 
-            // button1
-            // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button1.Location = new System.Drawing.Point(336, 470);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(102, 31);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Exportar Listado";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // lbContador
             // 
@@ -211,6 +204,48 @@
             this.lbContador.Size = new System.Drawing.Size(50, 13);
             this.lbContador.TabIndex = 6;
             this.lbContador.Text = "Contador";
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsbAtras,
+            this.tsbImprimir,
+            this.tsbExportarAexcel});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(244, 25);
+            this.toolStrip1.TabIndex = 7;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // tsbAtras
+            // 
+            this.tsbAtras.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbAtras.Image = global::UI.Escritorio.Properties.Resources.FlechaRetroceso;
+            this.tsbAtras.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbAtras.Name = "tsbAtras";
+            this.tsbAtras.Size = new System.Drawing.Size(23, 22);
+            this.tsbAtras.Text = "Volver a atrás";
+            this.tsbAtras.Click += new System.EventHandler(this.tsbAtras_Click);
+            // 
+            // tsbImprimir
+            // 
+            this.tsbImprimir.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbImprimir.Image = global::UI.Escritorio.Properties.Resources.impresora;
+            this.tsbImprimir.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbImprimir.Name = "tsbImprimir";
+            this.tsbImprimir.Size = new System.Drawing.Size(23, 22);
+            this.tsbImprimir.Text = "Imprimir";
+            this.tsbImprimir.Click += new System.EventHandler(this.tsbImprimir_Click);
+            // 
+            // tsbExportarAexcel
+            // 
+            this.tsbExportarAexcel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbExportarAexcel.Image = global::UI.Escritorio.Properties.Resources.logo_Excel;
+            this.tsbExportarAexcel.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbExportarAexcel.Name = "tsbExportarAexcel";
+            this.tsbExportarAexcel.Size = new System.Drawing.Size(23, 22);
+            this.tsbExportarAexcel.Text = "Exportar a Excel";
+            this.tsbExportarAexcel.Click += new System.EventHandler(this.tsbExportarAexcel_Click);
             // 
             // frmListaSocios
             // 
@@ -224,6 +259,8 @@
             this.tlpListaSocios.ResumeLayout(false);
             this.tlpListaSocios.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataListado)).EndInit();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -243,8 +280,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Dni;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaNac;
         private System.Windows.Forms.Button btnSalir;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label lbContador;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton tsbAtras;
+        private System.Windows.Forms.ToolStripButton tsbImprimir;
+        private System.Windows.Forms.ToolStripButton tsbExportarAexcel;
 
     }
 }

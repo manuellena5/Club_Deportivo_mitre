@@ -44,14 +44,16 @@
             this.cbFiltro = new System.Windows.Forms.ComboBox();
             this.cbListaBusqueda = new System.Windows.Forms.ComboBox();
             this.lbSocio = new System.Windows.Forms.Label();
-            this.btnExportar = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.lbContador = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.tsbRegresar = new System.Windows.Forms.ToolStripButton();
             this.tsbEditar = new System.Windows.Forms.ToolStripButton();
             this.tsbEliminar = new System.Windows.Forms.ToolStripButton();
+            this.tsbImprimir = new System.Windows.Forms.ToolStripButton();
+            this.tsbExportarExcel = new System.Windows.Forms.ToolStripButton();
             this.tlpHistorialxSocio.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataListado)).BeginInit();
             this.toolStrip1.SuspendLayout();
@@ -60,16 +62,15 @@
             // tlpHistorialxSocio
             // 
             this.tlpHistorialxSocio.ColumnCount = 4;
-            this.tlpHistorialxSocio.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.7971F));
-            this.tlpHistorialxSocio.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.2029F));
+            this.tlpHistorialxSocio.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 62.4F));
+            this.tlpHistorialxSocio.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.6F));
             this.tlpHistorialxSocio.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 137F));
-            this.tlpHistorialxSocio.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 179F));
+            this.tlpHistorialxSocio.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 183F));
             this.tlpHistorialxSocio.Controls.Add(this.dataListado, 0, 2);
             this.tlpHistorialxSocio.Controls.Add(this.btnBuscar, 0, 1);
             this.tlpHistorialxSocio.Controls.Add(this.cbFiltro, 2, 1);
             this.tlpHistorialxSocio.Controls.Add(this.cbListaBusqueda, 3, 1);
             this.tlpHistorialxSocio.Controls.Add(this.lbSocio, 0, 3);
-            this.tlpHistorialxSocio.Controls.Add(this.btnExportar, 1, 3);
             this.tlpHistorialxSocio.Controls.Add(this.btnActualizar, 2, 3);
             this.tlpHistorialxSocio.Controls.Add(this.btnSalir, 3, 3);
             this.tlpHistorialxSocio.Controls.Add(this.lbContador, 0, 4);
@@ -208,7 +209,7 @@
             this.cbFiltro.Items.AddRange(new object[] {
             "Mes",
             "Año"});
-            this.cbFiltro.Location = new System.Drawing.Point(254, 35);
+            this.cbFiltro.Location = new System.Drawing.Point(250, 35);
             this.cbFiltro.Name = "cbFiltro";
             this.cbFiltro.Size = new System.Drawing.Size(131, 21);
             this.cbFiltro.TabIndex = 4;
@@ -218,7 +219,7 @@
             // 
             this.cbListaBusqueda.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbListaBusqueda.FormattingEnabled = true;
-            this.cbListaBusqueda.Location = new System.Drawing.Point(400, 35);
+            this.cbListaBusqueda.Location = new System.Drawing.Point(398, 35);
             this.cbListaBusqueda.Name = "cbListaBusqueda";
             this.cbListaBusqueda.Size = new System.Drawing.Size(156, 21);
             this.cbListaBusqueda.TabIndex = 7;
@@ -233,21 +234,10 @@
             this.lbSocio.TabIndex = 12;
             this.lbSocio.Text = "Socio: ";
             // 
-            // btnExportar
-            // 
-            this.btnExportar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnExportar.Location = new System.Drawing.Point(143, 399);
-            this.btnExportar.Name = "btnExportar";
-            this.btnExportar.Size = new System.Drawing.Size(105, 23);
-            this.btnExportar.TabIndex = 11;
-            this.btnExportar.Text = "Exportar listado";
-            this.btnExportar.UseVisualStyleBackColor = true;
-            this.btnExportar.Click += new System.EventHandler(this.btnExportar_Click);
-            // 
             // btnActualizar
             // 
             this.btnActualizar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnActualizar.Location = new System.Drawing.Point(282, 399);
+            this.btnActualizar.Location = new System.Drawing.Point(278, 399);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(75, 23);
             this.btnActualizar.TabIndex = 6;
@@ -258,7 +248,7 @@
             // btnSalir
             // 
             this.btnSalir.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnSalir.Location = new System.Drawing.Point(440, 399);
+            this.btnSalir.Location = new System.Drawing.Point(438, 399);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 23);
             this.btnSalir.TabIndex = 3;
@@ -279,7 +269,7 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(195, 39);
+            this.label1.Location = new System.Drawing.Point(191, 39);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(53, 13);
             this.label1.TabIndex = 5;
@@ -288,13 +278,26 @@
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsbRegresar,
             this.tsbEditar,
-            this.tsbEliminar});
+            this.tsbEliminar,
+            this.tsbImprimir,
+            this.tsbExportarExcel});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(140, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(154, 25);
             this.toolStrip1.TabIndex = 21;
             this.toolStrip1.Text = "toolStrip1";
+            // 
+            // tsbRegresar
+            // 
+            this.tsbRegresar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbRegresar.Image = global::UI.Escritorio.Properties.Resources.FlechaRetroceso;
+            this.tsbRegresar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbRegresar.Name = "tsbRegresar";
+            this.tsbRegresar.Size = new System.Drawing.Size(23, 22);
+            this.tsbRegresar.Text = "Regresar";
+            this.tsbRegresar.Click += new System.EventHandler(this.tsbRegresar_Click);
             // 
             // tsbEditar
             // 
@@ -317,6 +320,26 @@
             this.tsbEliminar.Text = "toolStripButton2";
             this.tsbEliminar.ToolTipText = "Eliminar";
             this.tsbEliminar.Click += new System.EventHandler(this.tsbEliminar_Click);
+            // 
+            // tsbImprimir
+            // 
+            this.tsbImprimir.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbImprimir.Image = global::UI.Escritorio.Properties.Resources.impresora;
+            this.tsbImprimir.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbImprimir.Name = "tsbImprimir";
+            this.tsbImprimir.Size = new System.Drawing.Size(23, 22);
+            this.tsbImprimir.Text = "Imprimir";
+            this.tsbImprimir.Click += new System.EventHandler(this.tsbImprimir_Click);
+            // 
+            // tsbExportarExcel
+            // 
+            this.tsbExportarExcel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbExportarExcel.Image = global::UI.Escritorio.Properties.Resources.logo_Excel;
+            this.tsbExportarExcel.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbExportarExcel.Name = "tsbExportarExcel";
+            this.tsbExportarExcel.Size = new System.Drawing.Size(23, 22);
+            this.tsbExportarExcel.Text = "Exportar a Excel";
+            this.tsbExportarExcel.Click += new System.EventHandler(this.tsbExportarExcel_Click);
             // 
             // frmHistorialPagosXSocio
             // 
@@ -345,7 +368,6 @@
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.ComboBox cbListaBusqueda;
-        private System.Windows.Forms.Button btnExportar;
         private System.Windows.Forms.Label lbSocio;
         private System.Windows.Forms.DataGridView dataListado;
         private System.Windows.Forms.DataGridViewTextBoxColumn NroSocio;
@@ -360,5 +382,8 @@
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton tsbEditar;
         private System.Windows.Forms.ToolStripButton tsbEliminar;
+        private System.Windows.Forms.ToolStripButton tsbRegresar;
+        private System.Windows.Forms.ToolStripButton tsbImprimir;
+        private System.Windows.Forms.ToolStripButton tsbExportarExcel;
     }
 }

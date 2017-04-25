@@ -75,7 +75,8 @@ namespace UI.Escritorio
             frmVistaPrevRepTickets fr = new frmVistaPrevRepTickets();
 
             fr.anior = Convert.ToInt32(this.cbAnio.SelectedItem);
-            fr.mesr = Convert.ToInt32(this.cbMes.SelectedItem);
+            int nromes = Convert.ToInt32(this.cbMes.SelectedIndex) + 1;
+            fr.mesr = nromes;
 
             if (Convert.ToString(cbCategorias.SelectedItem) == "UnicoSocio")
             {

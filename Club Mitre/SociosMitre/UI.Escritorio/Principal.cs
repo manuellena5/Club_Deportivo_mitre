@@ -33,8 +33,7 @@ namespace UI.Escritorio
 
         private void historialPagosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmHistorialPagosXSocio frm = new frmHistorialPagosXSocio();
-            frm.ShowDialog();
+            
 
         }
 
@@ -70,6 +69,12 @@ namespace UI.Escritorio
         private void impresionDeTicketsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmImpresionDeTickets frm = new frmImpresionDeTickets();
+            frm.ShowDialog();
+        }
+
+        private void historialDePagosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmHistorialPagosXSocio frm = new frmHistorialPagosXSocio();
             frm.ShowDialog();
         }
     }

@@ -109,6 +109,21 @@ namespace UI.Escritorio
         }
 
 
+        private void tsbImpresora_Click(object sender, EventArgs e)
+        {
+            frmVistaPrevListadoEstadoActualSociosActivos frm = new frmVistaPrevListadoEstadoActualSociosActivos();
+            frm.ShowDialog();
+        }
+
+
+        private void tsbExportarAexcel_Click(object sender, EventArgs e)
+        {
+            ExportarAexcel2 exp = new ExportarAexcel2();
+            exp.exporta_a_excel(this.dgvSocios);
+        }
+
+
+
         #endregion
 
 
@@ -119,6 +134,9 @@ namespace UI.Escritorio
         {
 
         }
+
+        
+        
 
         
 
