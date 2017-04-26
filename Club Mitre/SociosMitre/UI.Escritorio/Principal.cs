@@ -33,14 +33,48 @@ namespace UI.Escritorio
 
         private void historialPagosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmHistorialPagosXSocio frm = new frmHistorialPagosXSocio();
-            frm.ShowDialog();
+            
 
         }
 
         private void aBMCCategoriasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmActualizacionPrecios frm = new frmActualizacionPrecios();
+            frm.ShowDialog();
+        }
+
+        private void controlDeSociosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmListaSocios frm = new frmListaSocios();
+            frm.ShowDialog();
+        }
+
+        private void importarDesdeExcelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmCargarDatosDesdeExcel frm = new FrmCargarDatosDesdeExcel();
+            frm.ShowDialog();
+        }
+
+        private void resumenDePagosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void balancesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmBalance frm = new frmBalance();
+            frm.ShowDialog();
+        }
+
+        private void impresionDeTicketsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmImpresionDeTickets frm = new frmImpresionDeTickets();
+            frm.ShowDialog();
+        }
+
+        private void historialDePagosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmHistorialPagosXSocio frm = new frmHistorialPagosXSocio();
             frm.ShowDialog();
         }
     }

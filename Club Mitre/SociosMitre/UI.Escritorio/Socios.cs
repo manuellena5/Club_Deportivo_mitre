@@ -42,6 +42,7 @@ namespace UI.Escritorio
             SociosLogic socl = new SociosLogic();
 
             this.dgvSocios.DataSource = socl.TraerTodosEstadoActual();
+            this.lbContador.Text = "Cantidad de registros: " + Convert.ToString(this.dgvSocios.RowCount);
            
 
         }
@@ -96,9 +97,36 @@ namespace UI.Escritorio
         {
             SociosLogic soc = new SociosLogic();
             dgvSocios.DataSource = soc.TraerPorApellidoEstadoActual(this.txtBuscar.Text);
+            this.lbContador.Text = "Cantidad de registros: " + Convert.ToString(this.dgvSocios.RowCount);
         }
 
+
+        private void btnExportar_Click(object sender, EventArgs e)
+        {
+            ExportarAexcel2 exp = new ExportarAexcel2();
+            exp.exporta_a_excel(this.dgvSocios);
+
+        }
+
+
+        private void tsbImpresora_Click(object sender, EventArgs e)
+        {
+            frmVistaPrevListadoEstadoActualSociosActivos frm = new frmVistaPrevListadoEstadoActualSociosActivos();
+            frm.ShowDialog();
+        }
+
+
+        private void tsbExportarAexcel_Click(object sender, EventArgs e)
+        {
+            ExportarAexcel2 exp = new ExportarAexcel2();
+            exp.exporta_a_excel(this.dgvSocios);
+        }
+
+
+
         #endregion
+
+
 
 
 
@@ -106,6 +134,11 @@ namespace UI.Escritorio
         {
 
         }
+
+        
+        
+
+        
 
         
 

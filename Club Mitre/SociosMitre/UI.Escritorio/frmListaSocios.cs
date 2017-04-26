@@ -16,8 +16,16 @@ namespace UI.Escritorio
     {
         #region VARIABLES
 
-        public string par2, par3, par4, par5, par6, par7;
-        public int par1;
+        public string nomb, ape, doc, fnac, tip, cat;
+        public int nrosoc;
+
+        //par1 = NroSocio
+        //    par2 = Nombre
+        //        par3=Apellido
+        //            par4 = Dni
+        //                par5 = FechaNac
+        //                    par6 = Tipo
+        //                        par7 = Categoria
 
 
         #endregion
@@ -41,6 +49,7 @@ namespace UI.Escritorio
         {
             SociosLogic soc = new SociosLogic();
             this.dataListado.DataSource = soc.GetAll();
+            this.lbContador.Text = "Cantidad de registros: " + Convert.ToString(dataListado.RowCount);
 
         }
 
@@ -70,14 +79,16 @@ namespace UI.Escritorio
 
         private void dgvListaSocios_DoubleClick(object sender, EventArgs e)
         {
-            par1 = Convert.ToInt32(this.dataListado.CurrentRow.Cells["NroSocio"].Value);
-            par2 = Convert.ToString(this.dataListado.CurrentRow.Cells["Nombre"].Value);
-            par3 = Convert.ToString(this.dataListado.CurrentRow.Cells["Apellido"].Value);
-            par4 = Convert.ToString(this.dataListado.CurrentRow.Cells["Dni"].Value);
-            par5 = Convert.ToString(this.dataListado.CurrentRow.Cells["FechaNac"].Value);
-            par6 = Convert.ToString(this.dataListado.CurrentRow.Cells["Tipo"].Value);
-            par7 = Convert.ToString(this.dataListado.CurrentRow.Cells["Categoria"].Value);
+            nrosoc = Convert.ToInt32(this.dataListado.CurrentRow.Cells["NroSocio"].Value);
+            nomb = Convert.ToString(this.dataListado.CurrentRow.Cells["Nombre"].Value);
+            ape = Convert.ToString(this.dataListado.CurrentRow.Cells["Apellido"].Value);
+            doc = Convert.ToString(this.dataListado.CurrentRow.Cells["Dni"].Value);
+            fnac = Convert.ToString(this.dataListado.CurrentRow.Cells["FechaNac"].Value);
+            tip = Convert.ToString(this.dataListado.CurrentRow.Cells["Tipo"].Value);
+            cat = Convert.ToString(this.dataListado.CurrentRow.Cells["Categoria"].Value);
             this.Hide();
+
+
         }
 
 
@@ -105,10 +116,32 @@ namespace UI.Escritorio
             this.Close();
         }
 
-
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+        }
+       
 
         #endregion
-       
+
+        private void tsbExportarAexcel_Click(object sender, EventArgs e)
+        {
+            ExportarAexcel2 exp1 = new ExportarAexcel2();
+            exp1.exporta_a_excel(this.dataListado);
+        }
+
+        private void tsbImprimir_Click(object sender, EventArgs e)
+        {
+            frmVistaPrevListadoSociosActivos frm = new frmVistaPrevListadoSociosActivos();
+            frm.ShowDialog();
+        }
+
+        private void tsbAtras_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        
 
 
     }

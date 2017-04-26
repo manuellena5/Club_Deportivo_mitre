@@ -26,20 +26,21 @@ namespace Datos
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdpagos = new SqlCommand("select soc.nro_socio,soc.nombre,soc.apellidos,soc.tipo,cat.descripcion,cuo.mes_cuota,cuo.anio_cuota,cuo.importe from Cuotas cuo inner join Socios soc on cuo.nro_socio = soc.nro_socio inner join categoria cat on cat.id_categoria = soc.id_categoria order by soc.nombre,soc.apellidos,cuo.anio_cuota,cuo.mes_cuota", SqlConn);
+                SqlCommand cmdpagos = new SqlCommand("select soc.nro_socio,soc.nombre,soc.apellidos,soc.tipo,cat.nombre_categoria,cuo.mes_cuota,cuo.anio_cuota,cuo.importe from Cuotas cuo inner join Socios soc on cuo.nro_socio = soc.nro_socio inner join categoria cat on cat.id_categoria = soc.id_categoria order by soc.nombre,soc.apellidos,cuo.anio_cuota,cuo.mes_cuota", SqlConn);
                 SqlDataReader drcuotas = cmdpagos.ExecuteReader();
                 while (drcuotas.Read())
                 {
                     int bandera = 0;
                     Cuotas cuo = new Cuotas();
-                    cuo.NroSocio = (int)drcuotas["nro_socio"];
-                    cuo.Nombre = (string)drcuotas["nombre"];
-                    cuo.Apellido = (string)drcuotas["apellidos"];
-                    cuo.Tipo = (string)drcuotas["tipo"];
-                    cuo.Categoria = (string)drcuotas["descripcion"];
-                    cuo.NroMesCuota = (int)drcuotas["mes_cuota"];
-                    cuo.AnioCuota = (int)drcuotas["anio_cuota"];
-                    cuo.Importe = (int)drcuotas["importe"];
+
+                    cuo.NroSocio = drcuotas.IsDBNull(0) ? Convert.ToInt32(string.Empty) : (Convert.ToInt32(drcuotas["nro_socio"]));
+                    cuo.Nombre = drcuotas.IsDBNull(1) ? string.Empty : drcuotas["nombre"].ToString();
+                    cuo.Apellido = drcuotas.IsDBNull(2) ? string.Empty : drcuotas["apellidos"].ToString();
+                    cuo.Tipo = drcuotas.IsDBNull(3) ? string.Empty : drcuotas["tipo"].ToString();
+                    cuo.Categoria = drcuotas.IsDBNull(4) ? string.Empty : drcuotas["nombre_categoria"].ToString();
+                    cuo.NroMesCuota = drcuotas.IsDBNull(5) ? Convert.ToInt32(string.Empty) : Convert.ToInt32(drcuotas["mes_cuota"]);
+                    cuo.AnioCuota = drcuotas.IsDBNull(6) ? Convert.ToInt32(string.Empty) : (Convert.ToInt32(drcuotas["anio_cuota"]));
+                    cuo.Importe = drcuotas.IsDBNull(7) ? Convert.ToInt32(string.Empty) : (Convert.ToInt32(drcuotas["importe"]));
 
                     foreach (int mes in Enum.GetValues(typeof(meses)))
                     {
@@ -53,7 +54,8 @@ namespace Datos
                     }
                     if (bandera == 0)
                     {
-                        cuo.Mes = meses.No_ha_abonado.ToString();
+                        cuo.Mes = "No ha abonado";
+                       
                     }
 
                     
@@ -81,7 +83,7 @@ namespace Datos
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdpagos = new SqlCommand("select soc.nro_socio,soc.nombre,soc.apellidos,soc.tipo,cat.descripcion,cuo.mes_cuota,cuo.anio_cuota,cuo.importe from Cuotas cuo inner join Socios soc on cuo.nro_socio = soc.nro_socio inner join categoria cat on cat.id_categoria = soc.id_categoria where soc.nro_socio = @id and cuo.mes_cuota=@mes and cuo.anio_cuota = @anio order by soc.nombre,soc.apellidos,cuo.anio_cuota,cuo.mes_cuota", SqlConn);
+                SqlCommand cmdpagos = new SqlCommand("select soc.nro_socio,soc.nombre,soc.apellidos,soc.tipo,cat.nombre_categoria,cuo.mes_cuota,cuo.anio_cuota,cuo.importe from Cuotas cuo inner join Socios soc on cuo.nro_socio = soc.nro_socio inner join categoria cat on cat.id_categoria = soc.id_categoria where soc.nro_socio = @id and cuo.mes_cuota=@mes and cuo.anio_cuota = @anio order by soc.nombre,soc.apellidos,cuo.anio_cuota,cuo.mes_cuota", SqlConn);
                 cmdpagos.Parameters.Add("@id", SqlDbType.Int).Value = id;
                 cmdpagos.Parameters.Add("@mes", SqlDbType.Int).Value = mes;
                 cmdpagos.Parameters.Add("@anio", SqlDbType.Int).Value = anio;
@@ -89,14 +91,14 @@ namespace Datos
                 if (drcuotas.Read())
                 {
                     int bandera = 0;
-                    cuo.NroSocio = (int)drcuotas["nro_socio"];
-                    cuo.Nombre = (string)drcuotas["nombre"];
-                    cuo.Apellido = (string)drcuotas["apellidos"];
-                    cuo.Tipo = (string)drcuotas["tipo"];
-                    cuo.Categoria = (string)drcuotas["descripcion"];
-                    cuo.NroMesCuota = (int)drcuotas["mes_cuota"];
-                    cuo.AnioCuota = (int)drcuotas["anio_cuota"];
-                    cuo.Importe = (int)drcuotas["importe"];
+                    cuo.NroSocio = drcuotas.IsDBNull(0) ? Convert.ToInt32(string.Empty) : (Convert.ToInt32(drcuotas["nro_socio"]));
+                    cuo.Nombre = drcuotas.IsDBNull(1) ? string.Empty : drcuotas["nombre"].ToString();
+                    cuo.Apellido = drcuotas.IsDBNull(2) ? string.Empty : drcuotas["apellidos"].ToString();
+                    cuo.Tipo = drcuotas.IsDBNull(3) ? string.Empty : drcuotas["tipo"].ToString();
+                    cuo.Categoria = drcuotas.IsDBNull(4) ? string.Empty : drcuotas["nombre_categoria"].ToString();
+                    cuo.NroMesCuota = drcuotas.IsDBNull(5) ? Convert.ToInt32(string.Empty) : Convert.ToInt32(drcuotas["mes_cuota"]);
+                    cuo.AnioCuota = drcuotas.IsDBNull(6) ? Convert.ToInt32(string.Empty) : (Convert.ToInt32(drcuotas["anio_cuota"]));
+                    cuo.Importe = drcuotas.IsDBNull(7) ? Convert.ToInt32(string.Empty) : (Convert.ToInt32(drcuotas["importe"]));
 
                     foreach (int mes1 in Enum.GetValues(typeof(meses)))
                     {
@@ -110,7 +112,7 @@ namespace Datos
                     }
                     if (bandera == 0)
                     {
-                        cuo.Mes = meses.No_ha_abonado.ToString();
+                        cuo.Mes = "No ha abonado";
                     }
                     
 
@@ -136,21 +138,21 @@ namespace Datos
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdpagos = new SqlCommand("select soc.nro_socio,soc.nombre,soc.apellidos,soc.tipo,cat.descripcion,cuo.mes_cuota,cuo.anio_cuota,cuo.importe from Cuotas cuo inner join Socios soc on cuo.nro_socio = soc.nro_socio inner join categoria cat on cat.id_categoria = soc.id_categoria where soc.nro_socio = @id order by soc.nombre,soc.apellidos,cuo.anio_cuota,cuo.mes_cuota", SqlConn);
+                SqlCommand cmdpagos = new SqlCommand("select soc.nro_socio,soc.nombre,soc.apellidos,soc.tipo,cat.nombre_categoria,cuo.mes_cuota,cuo.anio_cuota,cuo.importe from Cuotas cuo inner join Socios soc on cuo.nro_socio = soc.nro_socio inner join categoria cat on cat.id_categoria = soc.id_categoria where soc.nro_socio = @id order by soc.nombre,soc.apellidos,cuo.anio_cuota,cuo.mes_cuota", SqlConn);
                 cmdpagos.Parameters.Add ("@id", SqlDbType.Int).Value = id;
                 SqlDataReader drcuotas = cmdpagos.ExecuteReader();
                 while (drcuotas.Read())
                 {
                     int bandera = 0;
                     Cuotas cuo = new Cuotas();
-                    cuo.NroSocio = (int)drcuotas["nro_socio"];
-                    cuo.Nombre = (string)drcuotas["nombre"];
-                    cuo.Apellido = (string)drcuotas["apellidos"];
-                    cuo.Tipo = (string)drcuotas["tipo"];
-                    cuo.Categoria = (string)drcuotas["descripcion"];
-                    cuo.NroMesCuota = (int)drcuotas["mes_cuota"];
-                    cuo.AnioCuota = (int)drcuotas["anio_cuota"];
-                    cuo.Importe = (int)drcuotas["importe"];
+                    cuo.NroSocio = drcuotas.IsDBNull(0) ? Convert.ToInt32(string.Empty) : (Convert.ToInt32(drcuotas["nro_socio"]));
+                    cuo.Nombre = drcuotas.IsDBNull(1) ? string.Empty : drcuotas["nombre"].ToString();
+                    cuo.Apellido = drcuotas.IsDBNull(2) ? string.Empty : drcuotas["apellidos"].ToString();
+                    cuo.Tipo = drcuotas.IsDBNull(3) ? string.Empty : drcuotas["tipo"].ToString();
+                    cuo.Categoria = drcuotas.IsDBNull(4) ? string.Empty : drcuotas["nombre_categoria"].ToString();
+                    cuo.NroMesCuota = drcuotas.IsDBNull(5) ? Convert.ToInt32(string.Empty) : Convert.ToInt32(drcuotas["mes_cuota"]);
+                    cuo.AnioCuota = drcuotas.IsDBNull(6) ? Convert.ToInt32(string.Empty) : (Convert.ToInt32(drcuotas["anio_cuota"]));
+                    cuo.Importe = drcuotas.IsDBNull(7) ? Convert.ToInt32(string.Empty) : (Convert.ToInt32(drcuotas["importe"]));
                     foreach (int mes in Enum.GetValues(typeof(meses)))
                     {
                         if (mes == (int)drcuotas["mes_cuota"])
@@ -163,7 +165,7 @@ namespace Datos
                     }
                     if (bandera == 0)
                     {
-                        cuo.Mes = meses.No_ha_abonado.ToString();
+                        cuo.Mes = "No ha abonado";
                     }
                     pagCuo.Add(cuo);
 
@@ -189,7 +191,7 @@ namespace Datos
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdpagos = new SqlCommand("select soc.nro_socio,soc.nombre,soc.apellidos,soc.tipo,cat.descripcion,cuo.mes_cuota,cuo.anio_cuota,cuo.importe from Cuotas cuo inner join Socios soc on cuo.nro_socio = soc.nro_socio inner join categoria cat on cat.id_categoria = soc.id_categoria where cuo.mes_cuota = @mes order by soc.nombre,soc.apellidos,cuo.anio_cuota,cuo.mes_cuota", SqlConn);
+                SqlCommand cmdpagos = new SqlCommand("select soc.nro_socio,soc.nombre,soc.apellidos,soc.tipo,cat.nombre_categoria,cuo.mes_cuota,cuo.anio_cuota,cuo.importe from Cuotas cuo inner join Socios soc on cuo.nro_socio = soc.nro_socio inner join categoria cat on cat.id_categoria = soc.id_categoria where cuo.mes_cuota = @mes order by soc.nombre,soc.apellidos,cuo.anio_cuota,cuo.mes_cuota", SqlConn);
                 cmdpagos.Parameters.Add("@mes", SqlDbType.Int).Value = Mes;
 
                 SqlDataReader drcuotas = cmdpagos.ExecuteReader();
@@ -202,7 +204,7 @@ namespace Datos
                     cuo.Nombre = drcuotas.IsDBNull(1) ? string.Empty : drcuotas["nombre"].ToString();
                     cuo.Apellido = drcuotas.IsDBNull(2) ? string.Empty : drcuotas["apellidos"].ToString();
                     cuo.Tipo = drcuotas.IsDBNull(3) ? string.Empty : drcuotas["tipo"].ToString();
-                    cuo.Categoria = drcuotas.IsDBNull(4) ? string.Empty : drcuotas["descripcion"].ToString();
+                    cuo.Categoria = drcuotas.IsDBNull(4) ? string.Empty : drcuotas["nombre_categoria"].ToString();
                     cuo.NroMesCuota = drcuotas.IsDBNull(5) ? Convert.ToInt32(string.Empty) : Convert.ToInt32(drcuotas["mes_cuota"]);
                     cuo.AnioCuota = drcuotas.IsDBNull(6) ? Convert.ToInt32(string.Empty) : (Convert.ToInt32(drcuotas["anio_cuota"]));
                     cuo.Importe = drcuotas.IsDBNull(7) ? Convert.ToInt32(string.Empty) : (Convert.ToInt32(drcuotas["importe"]));
@@ -219,7 +221,7 @@ namespace Datos
                     }
                     if (bandera == 0)
                     {
-                        cuo.Mes = meses.No_ha_abonado.ToString();
+                        cuo.Mes = "No ha abonado";
                     }
 
                     Lista.Add(cuo);
@@ -243,7 +245,7 @@ namespace Datos
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdpagos = new SqlCommand("select soc.nro_socio,soc.nombre,soc.apellidos,soc.tipo,cat.descripcion,cuo.mes_cuota,cuo.anio_cuota,cuo.importe from Cuotas cuo inner join Socios soc on cuo.nro_socio = soc.nro_socio inner join categoria cat on cat.id_categoria = soc.id_categoria where cuo.mes_cuota = @mes and soc.nro_socio = @id order by soc.nombre,soc.apellidos,cuo.anio_cuota,cuo.mes_cuota", SqlConn);
+                SqlCommand cmdpagos = new SqlCommand("select soc.nro_socio,soc.nombre,soc.apellidos,soc.tipo,cat.nombre_categoria,cuo.mes_cuota,cuo.anio_cuota,cuo.importe from Cuotas cuo inner join Socios soc on cuo.nro_socio = soc.nro_socio inner join categoria cat on cat.id_categoria = soc.id_categoria where cuo.mes_cuota = @mes and soc.nro_socio = @id order by soc.nombre,soc.apellidos,cuo.anio_cuota,cuo.mes_cuota", SqlConn);
                 cmdpagos.Parameters.Add("@mes", SqlDbType.Int).Value = Mes;
                 cmdpagos.Parameters.Add("@id", SqlDbType.Int).Value = id;
 
@@ -257,7 +259,7 @@ namespace Datos
                     cuo.Nombre = drcuotas.IsDBNull(1) ? string.Empty : drcuotas["nombre"].ToString();
                     cuo.Apellido = drcuotas.IsDBNull(2) ? string.Empty : drcuotas["apellidos"].ToString();
                     cuo.Tipo = drcuotas.IsDBNull(3) ? string.Empty : drcuotas["tipo"].ToString();
-                    cuo.Categoria = drcuotas.IsDBNull(4) ? string.Empty : drcuotas["descripcion"].ToString();
+                    cuo.Categoria = drcuotas.IsDBNull(4) ? string.Empty : drcuotas["nombre_categoria"].ToString();
                     cuo.NroMesCuota = drcuotas.IsDBNull(5) ? Convert.ToInt32(string.Empty) : Convert.ToInt32(drcuotas["mes_cuota"]);
                     cuo.AnioCuota = drcuotas.IsDBNull(6) ? Convert.ToInt32(string.Empty) : (Convert.ToInt32(drcuotas["anio_cuota"]));
                     cuo.Importe = drcuotas.IsDBNull(7) ? Convert.ToInt32(string.Empty) : (Convert.ToInt32(drcuotas["importe"]));
@@ -274,7 +276,7 @@ namespace Datos
                     }
                     if (bandera == 0)
                     {
-                        cuo.Mes = meses.No_ha_abonado.ToString();
+                        cuo.Mes = "No ha abonado";
                     }
                     Lista.Add(cuo);
                 }
@@ -297,7 +299,7 @@ namespace Datos
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdpagos = new SqlCommand("select soc.nro_socio,soc.nombre,soc.apellidos,soc.tipo,cat.descripcion,cuo.mes_cuota,cuo.anio_cuota,cuo.importe from Cuotas cuo inner join Socios soc on cuo.nro_socio = soc.nro_socio inner join categoria cat on cat.id_categoria = soc.id_categoria where cuo.anio_cuota like @textobuscar + '%' order by soc.nombre,soc.apellidos,cuo.anio_cuota,cuo.mes_cuota", SqlConn);
+                SqlCommand cmdpagos = new SqlCommand("select soc.nro_socio,soc.nombre,soc.apellidos,soc.tipo,cat.nombre_categoria,cuo.mes_cuota,cuo.anio_cuota,cuo.importe from Cuotas cuo inner join Socios soc on cuo.nro_socio = soc.nro_socio inner join categoria cat on cat.id_categoria = soc.id_categoria where cuo.anio_cuota like @textobuscar + '%' order by soc.nombre,soc.apellidos,cuo.anio_cuota,cuo.mes_cuota", SqlConn);
                 cmdpagos.Parameters.Add("@textobuscar", SqlDbType.VarChar, 50).Value = Txtbuscado;
 
                 SqlDataReader drcuotas = cmdpagos.ExecuteReader();
@@ -310,7 +312,7 @@ namespace Datos
                     cuo.Nombre = drcuotas.IsDBNull(1) ? string.Empty : drcuotas["nombre"].ToString();
                     cuo.Apellido = drcuotas.IsDBNull(2) ? string.Empty : drcuotas["apellidos"].ToString();
                     cuo.Tipo = drcuotas.IsDBNull(3) ? string.Empty : drcuotas["tipo"].ToString();
-                    cuo.Categoria = drcuotas.IsDBNull(4) ? string.Empty : drcuotas["descripcion"].ToString();
+                    cuo.Categoria = drcuotas.IsDBNull(4) ? string.Empty : drcuotas["nombre_categoria"].ToString();
                     cuo.NroMesCuota = drcuotas.IsDBNull(5) ? Convert.ToInt32(string.Empty) : Convert.ToInt32(drcuotas["mes_cuota"]);
                     cuo.AnioCuota = drcuotas.IsDBNull(6) ? Convert.ToInt32(string.Empty) : (Convert.ToInt32(drcuotas["anio_cuota"]));
                     cuo.Importe = drcuotas.IsDBNull(7) ? Convert.ToInt32(string.Empty) : (Convert.ToInt32(drcuotas["importe"]));
@@ -327,7 +329,7 @@ namespace Datos
                     }
                     if (bandera == 0)
                     {
-                        cuo.Mes = meses.No_ha_abonado.ToString();
+                        cuo.Mes = "No ha abonado";
                     }
 
                     Lista.Add(cuo);
@@ -351,7 +353,7 @@ namespace Datos
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdpagos = new SqlCommand("select soc.nro_socio,soc.nombre,soc.apellidos,soc.tipo,cat.descripcion,cuo.mes_cuota,cuo.anio_cuota,cuo.importe from Cuotas cuo inner join Socios soc on cuo.nro_socio = soc.nro_socio inner join categoria cat on cat.id_categoria = soc.id_categoria where cuo.anio_cuota like @textobuscar + '%' and soc.nro_socio = @id order by soc.nombre,soc.apellidos,cuo.anio_cuota,cuo.mes_cuota", SqlConn);
+                SqlCommand cmdpagos = new SqlCommand("select soc.nro_socio,soc.nombre,soc.apellidos,soc.tipo,cat.nombre_categoria,cuo.mes_cuota,cuo.anio_cuota,cuo.importe from Cuotas cuo inner join Socios soc on cuo.nro_socio = soc.nro_socio inner join categoria cat on cat.id_categoria = soc.id_categoria where cuo.anio_cuota like @textobuscar + '%' and soc.nro_socio = @id order by soc.nombre,soc.apellidos,cuo.anio_cuota,cuo.mes_cuota", SqlConn);
                 cmdpagos.Parameters.Add("@textobuscar", SqlDbType.VarChar, 50).Value = Txtbuscado;
                 cmdpagos.Parameters.Add("@id", SqlDbType.Int).Value = id;
 
@@ -365,7 +367,7 @@ namespace Datos
                     cuo.Nombre = drcuotas.IsDBNull(1) ? string.Empty : drcuotas["nombre"].ToString();
                     cuo.Apellido = drcuotas.IsDBNull(2) ? string.Empty : drcuotas["apellidos"].ToString();
                     cuo.Tipo = drcuotas.IsDBNull(3) ? string.Empty : drcuotas["tipo"].ToString();
-                    cuo.Categoria = drcuotas.IsDBNull(4) ? string.Empty : drcuotas["descripcion"].ToString();
+                    cuo.Categoria = drcuotas.IsDBNull(4) ? string.Empty : drcuotas["nombre_categoria"].ToString();
                     cuo.NroMesCuota = drcuotas.IsDBNull(5) ? Convert.ToInt32(string.Empty) : Convert.ToInt32(drcuotas["mes_cuota"]);
                     cuo.AnioCuota = drcuotas.IsDBNull(6) ? Convert.ToInt32(string.Empty) : (Convert.ToInt32(drcuotas["anio_cuota"]));
                     cuo.Importe = drcuotas.IsDBNull(7) ? Convert.ToInt32(string.Empty) : (Convert.ToInt32(drcuotas["importe"]));
@@ -382,7 +384,7 @@ namespace Datos
                     }
                     if (bandera == 0)
                     {
-                        cuo.Mes = meses.No_ha_abonado.ToString();
+                        cuo.Mes = "No ha abonado";
                     }
 
 
@@ -400,7 +402,135 @@ namespace Datos
             return Lista;
         }
 
-       
+        
+        public List<Balance> TraerBalanceClubMutual(int anio,string tipo,string categoria)
+        {
+            List<Balance> BalCuo = new List<Balance>();
+
+
+
+            if (tipo == string.Empty)
+            {
+                tipo = Convert.ToString(null);
+            }
+            if (categoria == string.Empty)
+            {
+                categoria = Convert.ToString(null);
+            }
+            
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdcuo = new SqlCommand("exec SpBalance @anio,@tipo,@categoria", SqlConn);
+                
+		         if (anio == null)
+	            {
+		        cmdcuo.Parameters.AddWithValue("@anio", DBNull.Value);
+	            }else
+	            {
+                 cmdcuo.Parameters.Add("@anio", SqlDbType.Int).Value = anio; 
+	            }
+                if (tipo == null)
+		        {
+                    cmdcuo.Parameters.AddWithValue("@tipo", DBNull.Value); }
+	            else
+	            {
+                    cmdcuo.Parameters.Add("@tipo", SqlDbType.VarChar, 50).Value = tipo;
+	            } 
+                if (categoria == null)
+	            {
+		            cmdcuo.Parameters.AddWithValue("@categoria", DBNull.Value);
+	            }else
+	            {
+                    cmdcuo.Parameters.Add("@categoria", SqlDbType.VarChar,50).Value = categoria;
+	            }
+
+                SqlDataReader drcuotas = cmdcuo.ExecuteReader();
+                while (drcuotas.Read())
+                {
+                    Balance bal = new Balance();
+                    bal.NroMes = drcuotas.IsDBNull(0) ? Convert.ToInt32(string.Empty) : (Convert.ToInt32(drcuotas["mes_cuota"]));
+
+                    foreach (int mes in Enum.GetValues(typeof(meses)))
+                    {
+                        if (mes == Convert.ToInt32(drcuotas["mes_cuota"]))
+                        {
+                            bal.Mes = Enum.GetName(typeof(meses), mes);
+                            break;
+                        }
+
+                    }
+
+                    
+                    bal.ImporteClub =  Convert.ToInt32(drcuotas["Club"]);
+                    bal.ImporteMutual = Convert.ToInt32(drcuotas["Mutual"]);
+                    bal.TotalSuma = Convert.ToInt32(drcuotas["Total"]);
+                    
+                   
+                    BalCuo.Add(bal);
+
+                }
+                drcuotas.Close();
+            }
+            catch (Exception ex)
+            {
+                Exception ExcepcionManejada = new Exception("No se hallaron resultados", ex);
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return BalCuo;
+
+        }
+
+
+        public List<Balance> TraerBalanceClubMutualAñoActual()
+        {
+            List<Balance> BalCuo = new List<Balance>();
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdcuo = new SqlCommand("exec SpBalance @anio", SqlConn);
+                cmdcuo.Parameters.Add("@anio", SqlDbType.Int).Value = 2017;
+                SqlDataReader drcuotas = cmdcuo.ExecuteReader();
+                while (drcuotas.Read())
+                {
+                    Balance bal = new Balance();
+                    bal.NroMes = Convert.ToInt32(drcuotas["mes_cuota"]);
+
+                    foreach (int mes in Enum.GetValues(typeof(meses)))
+                    {
+                        if (mes == Convert.ToInt32(drcuotas["mes_cuota"]))
+                        {
+                            bal.Mes = Enum.GetName(typeof(meses), mes);
+                            break;
+                        }
+
+                    }
+
+
+                    bal.ImporteClub = Convert.ToInt32(drcuotas["Club"]);
+                    bal.ImporteMutual = Convert.ToInt32(drcuotas["Mutual"]);
+                    bal.TotalSuma = Convert.ToInt32(drcuotas["Total"]);
+
+
+                    BalCuo.Add(bal);
+
+                }
+                drcuotas.Close();
+            }
+            catch (Exception ex)
+            {
+                Exception ExcepcionManejada = new Exception("No se hallaron resultados", ex);
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return BalCuo;
+
+        }
 
 
         protected void Delete(int ID, int mes, int anio)

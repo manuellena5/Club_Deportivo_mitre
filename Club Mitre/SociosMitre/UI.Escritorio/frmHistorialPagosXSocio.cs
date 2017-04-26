@@ -52,6 +52,8 @@ namespace UI.Escritorio
         {
             CuotasLogic cuo = new CuotasLogic();
             this.dataListado.DataSource = cuo.GetAll();
+            this.lbContador.Text ="Cantidad de registros: " + Convert.ToString(this.dataListado.RowCount);
+            this.lbSocio.Text = "";
 
         }
 
@@ -60,6 +62,7 @@ namespace UI.Escritorio
         {
             CuotasLogic cuo = new CuotasLogic();
             this.dataListado.DataSource = cuo.TraerPorSocio(nroSocio);
+            this.lbContador.Text = "Cantidad de registros: " + Convert.ToString(this.dataListado.RowCount);
 
         }
 
@@ -70,33 +73,17 @@ namespace UI.Escritorio
         #region EVENTOS
 
 
-        private void btnBuscar_Click(object sender, EventArgs e)
-        {
-
-            if (this.btnBuscar.Text == "Listar")
-            {
-                this.Listar();
-                this.btnBuscar.Text = "Buscar";
-            }
-            else
-            {
-                //this.Buscar();
-            }
-        }
-
-
         private void btnBuscar_Click_1(object sender, EventArgs e)
         {
             
             frmListaSocios frm = new frmListaSocios();
             frm.ShowDialog();
-            this.LlenarGrid(frm.par1);
-            id = frm.par1;
-            nom = frm.par2;
-            ape = frm.par3;
+            this.LlenarGrid(frm.nrosoc);
+            id = frm.nrosoc;
+            nom = frm.nomb;
+            ape = frm.ape;
             this.lbSocio.Text = nom + " " + ape;
             
-
             
         }
 
@@ -104,14 +91,7 @@ namespace UI.Escritorio
 
         private void frmHistorialPagosXSocio_Load(object sender, EventArgs e)
         {
-            Listar();
-        }
-
-
-
-        private void btnSalir_Click(object sender, EventArgs e)
-        {
-            this.Close();
+            this.Listar();
         }
 
 
@@ -119,6 +99,10 @@ namespace UI.Escritorio
 
         private void cbListaBusqueda_SelectedValueChanged(object sender, EventArgs e)
         {
+            if (Convert.ToInt32(cbListaBusqueda.SelectedIndex) > -1)
+            {
+                
+            
             CuotasLogic cuo = new CuotasLogic();
             int mes = Convert.ToInt32(cbListaBusqueda.SelectedIndex) + 1; ;
             if (cbFiltro.SelectedItem.ToString() == "Año")
@@ -126,11 +110,13 @@ namespace UI.Escritorio
                 if (id == 0)
                 {
                     dataListado.DataSource = cuo.TraerPorAño(cbListaBusqueda.SelectedItem.ToString());
+                    this.lbContador.Text = "Cantidad de registros: " + Convert.ToString(this.dataListado.RowCount);
                 }
                 else
                 {
 
                     dataListado.DataSource = cuo.TraerPorAñoParaSocio(cbListaBusqueda.SelectedItem.ToString(), id);
+                    this.lbContador.Text = "Cantidad de registros: " + Convert.ToString(this.dataListado.RowCount);
                 }
             }
 
@@ -140,23 +126,27 @@ namespace UI.Escritorio
                 {
                     
                     dataListado.DataSource = cuo.TraerPorMes(mes);
+                    this.lbContador.Text = "Cantidad de registros: " + Convert.ToString(this.dataListado.RowCount);
                 }
                 else
                 {
 
                     dataListado.DataSource = cuo.TraerPorMesParaSocio(mes, id);
+                    this.lbContador.Text = "Cantidad de registros: " + Convert.ToString(this.dataListado.RowCount);
                 }
 
             }
         }
 
-
+        }
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
             this.Listar();
             id = 0;
             this.lbSocio.Text = "";
+            this.cbListaBusqueda.SelectedIndex = -1;
+            this.cbFiltro.SelectedIndex = -1;
 
         }
 
@@ -164,6 +154,10 @@ namespace UI.Escritorio
 
         private void cbFiltro_SelectedValueChanged(object sender, EventArgs e)
         {
+            if (Convert.ToInt32(cbFiltro.SelectedIndex) > -1 )
+            {
+                
+            
             cbListaBusqueda.Items.Clear();
             if (cbFiltro.SelectedItem.ToString() == "Año")
             {
@@ -178,19 +172,8 @@ namespace UI.Escritorio
             else
             {
                 cbListaBusqueda.Items.AddRange(typeof(meses).GetEnumNames());
-                //cbListaBusqueda.Items.Add("Enero");
-                //cbListaBusqueda.Items.Add("Febrero");
-                //cbListaBusqueda.Items.Add("Marzo");
-                //cbListaBusqueda.Items.Add("Abril");
-                //cbListaBusqueda.Items.Add("Mayo");
-                //cbListaBusqueda.Items.Add("Junio");
-                //cbListaBusqueda.Items.Add("Julio");
-                //cbListaBusqueda.Items.Add("Agosto");
-                //cbListaBusqueda.Items.Add("Septiembre");
-                //cbListaBusqueda.Items.Add("Octubre");
-                //cbListaBusqueda.Items.Add("Noviembre");
-                //cbListaBusqueda.Items.Add("Diciembre");
 
+            }
             }
         }
 
@@ -202,32 +185,20 @@ namespace UI.Escritorio
 
 
 
-        #endregion
-
-       
-
-        
-
-
-
-        private void tlpHistorialxSocio_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void toolStripButton1_Click(object sender, EventArgs e)
+        private void tsbEditar_Click(object sender, EventArgs e)
         {
 
             int nroSoc = ((Cuotas)this.dataListado.SelectedRows[0].DataBoundItem).NroSocio;
             int mes = ((Cuotas)this.dataListado.SelectedRows[0].DataBoundItem).NroMesCuota;
             int anio = ((Cuotas)this.dataListado.SelectedRows[0].DataBoundItem).AnioCuota;
             frmPagoCuotas frm = new frmPagoCuotas(nroSoc, mes, anio, ApplicationForm.ModoForm.Modificacion);
-            
+
             frm.ShowDialog();
             this.Listar();
-            
-            
+
+
         }
+
 
         private void tsbEliminar_Click(object sender, EventArgs e)
         {
@@ -239,6 +210,62 @@ namespace UI.Escritorio
             frm.ShowDialog();
             this.Listar();
         }
+
+
+        
+
+        private void tsbImprimir_Click(object sender, EventArgs e)
+        {
+            frmVistaPrevHistorialPagos frm = new frmVistaPrevHistorialPagos();
+
+            if (cbFiltro.SelectedItem.ToString() == "Año")
+            {
+                frm.anior = Convert.ToInt32(cbListaBusqueda.SelectedItem);
+                frm.mesr = 0;
+            }
+            else
+            {
+                
+                frm.mesr = Convert.ToInt32(cbListaBusqueda.SelectedIndex) + 1;
+                frm.anior = 0;
+            }
+
+            frm.nro_socior = this.id;
+            frm.ShowDialog();
+        }
+
+        private void tsbExportarExcel_Click(object sender, EventArgs e)
+        {
+            ExportarAexcel2 exportar = new ExportarAexcel2();
+            exportar.exporta_a_excel(this.dataListado);
+        }
+
+        private void tsbRegresar_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+
+        #endregion
+
+
+
+
+
+
+
+        private void btnExportar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+       
+
+
+
+        
+
+       
 
         
 

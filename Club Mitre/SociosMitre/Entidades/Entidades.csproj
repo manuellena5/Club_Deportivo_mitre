@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Balance.cs" />
     <Compile Include="BusinessEntities.cs" />
     <Compile Include="Categoria.cs" />
     <Compile Include="Cuotas.cs" />

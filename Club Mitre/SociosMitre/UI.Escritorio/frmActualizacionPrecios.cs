@@ -23,7 +23,6 @@ namespace UI.Escritorio
         #endregion
 
 
-
         #region CONSTRUCTOR
 
         
@@ -44,11 +43,14 @@ namespace UI.Escritorio
             CategoriaLogic catl = new CategoriaLogic();
 
             this.dataListado.DataSource = catl.GetAll();
+
+            this.lbContador.Text = "Cantidad de registros: " + Convert.ToString(this.dataListado.RowCount);
            
 
         }
 
         #endregion
+
 
         #region EVENTOS
 
@@ -77,7 +79,7 @@ namespace UI.Escritorio
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            int ID = ((Socio)this.dataListado.SelectedRows[0].DataBoundItem).NroSocio;
+            int ID = ((Categoria)this.dataListado.SelectedRows[0].DataBoundItem).Id_categoria;
             frmAMBcategoria frm = new frmAMBcategoria(ID, ApplicationForm.ModoForm.Modificacion);
             frm.ShowDialog();
             this.listar();
@@ -85,18 +87,41 @@ namespace UI.Escritorio
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            int ID = ((Categoria)this.dataListado.SelectedRows[0].DataBoundItem).Id_categoria;
-            frmAMBcategoria frm = new frmAMBcategoria(ID, ApplicationForm.ModoForm.Baja);
-            frm.BloquearControles(true);
-            frm.ShowDialog();
-            this.listar();
+            //int ID = ((Categoria)this.dataListado.SelectedRows[0].DataBoundItem).Id_categoria;
+            //frmAMBcategoria frm = new frmAMBcategoria(ID, ApplicationForm.ModoForm.Baja);
+            //frm.BloquearControles(true);
+            //frm.ShowDialog();
+            //this.listar();
 
         }
 
-
+        private void btnExportar_Click(object sender, EventArgs e)
+        {
+            ExportarAexcel2 exp = new ExportarAexcel2();
+            exp.exporta_a_excel(this.dataListado);
+        }
        
 
         #endregion
+
+        private void tsbImprimir_Click(object sender, EventArgs e)
+        {
+            frmVistaPrevCategorias frm = new frmVistaPrevCategorias();
+            frm.ShowDialog();
+        }
+
+        private void tsbExportarExcel_Click(object sender, EventArgs e)
+        {
+            ExportarAexcel2 exp = new ExportarAexcel2();
+            exp.exporta_a_excel(this.dataListado);
+        }
+
+        private void tsbAtras_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+
+       
 
 
     }
